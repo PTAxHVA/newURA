@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>URA – People</title>
+  <style>
+    :root{
+      --bg:#f3f5f7;
+      --card:#ffffff;
+      --ink:#0e1726;
+      --muted:#606b85;
+      --line:#e5e7eb;
+      --accent:#0b84fe;
+    }
+
+    *{box-sizing:border-box;}
+
+    html,body{height:100%;}
+
+    body{
+      margin:0;
+      font:16px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    /* Top nav */
+    .nav{
+      background:#fff;
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav__inner{
+      max-width:1100px;
+      margin:0 auto;
+      padding:10px 20px;
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+
+    .nav__brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:700;
+    }
+
+    .nav__brand img{
+      width:28px;
+      height:28px;
+      object-fit:contain;
+    }
+
+    .nav__links{
+      margin-left:auto;
+      display:flex;
+      gap:22px;
+      font-size:14px;
+    }
+
+    .nav__links a{
+      color:#334155;
+      font-weight:500;
+    }
+
+    .nav__links a[aria-current="page"],
+    .nav__links a:hover{
+      color:var(--ink);
+    }
+
+    /* Hero / title */
+    .jhero{
+      background:#e9edf2;
+      border-bottom:1px solid var(--line);
+    }
+
+    .jhero__inner{
+      max-width:1100px;
+      margin:0 auto;
+      padding:40px 20px 36px;
+    }
+
+    .jhero__title{
+      text-align:center;
+      letter-spacing:.28em;
+      font-weight:800;
+      font-size:26px;
+    }
+
+    /* Sections */
+    .section{
+      max-width:1100px;
+      margin:0 auto;
+      padding:28px 20px 32px;
+    }
+
+    .section--gray{
+      background:#edf2f7;
+      margin-left:0;
+      margin-right:0;
+      max-width:100%;
+    }
+
+    .section__inner{
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 20px 4px;
+    }
+
+    .section h2{
+      margin:0 0 10px;
+      font-size:24px;
+      font-weight:700;
+      text-transform:uppercase;
+    }
+
+    .section .bar{
+      height:3px;
+      background:#111827;
+      margin:4px 0 22px;
+      width:95%;
+      max-width:1040px;
+    }
+
+    /* Founder block */
+    .founder{
+      display:grid;
+      grid-template-columns:320px 1fr;
+      gap:32px;
+      align-items:flex-start;
+    }
+
+    .founder__photo{
+      border-radius:10px;
+      overflow:hidden;
+      background:#dbe3ec;
+      box-shadow:0 10px 30px rgba(15,23,42,.08);
+      min-height:220px;
+    }
+
+    .founder__photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .founder__rank{
+      color:#6b7280;
+      font-weight:700;
+      font-size:14px;
+    }
+
+    .founder__name{
+      font-size:32px;
+      font-weight:800;
+      margin:4px 0 2px;
+    }
+
+    .founder__vn{
+      color:#6b7280;
+      font-weight:600;
+      font-style:italic;
+      margin-bottom:10px;
+    }
+
+    .founder p{
+      font-size:14px;
+      color:#4b5563;
+      margin:0 0 12px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:9px 18px;
+      border-radius:999px;
+      background:var(--accent);
+      color:#fff;
+      font-weight:600;
+      font-size:13px;
+    }
+
+    /* People grid (flexbox) */
+    .people-wrap{
+      padding:32px 0 40px;
+    }
+
+    .grid{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;   /* center each row */
+      gap:44px 120px;           /* row gap, column gap */
+    }
+
+    .card{
+      width:230px;              /* controls how many fit per row */
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+    }
+
+.avatar{
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  overflow:hidden;
+  display:block;         /* ensure it keeps its own box */
+  flex:0 0 140px;        /* prevent flex/grid from stretching it */
+  background:#cfd5dd;    /* fallback grey if no image */
+}
+.avatar > img{
+  width:100%;
+  height:100%;
+  object-fit:cover;      /* crop instead of squish */
+  display:block;         /* remove inline gap/descender space */
+}
+
+    .name{
+      font-weight:700;
+      font-size:18px;
+    }
+
+    .vn{
+      font-style:italic;
+      color:#6b7280;
+      font-size:15px;
+      margin-top:2px;
+    }
+
+    .link{
+      margin-top:8px;
+      font-size:15px;
+    }
+
+    .link a{
+      color:var(--accent);
+      font-weight:600;
+    }
+
+    /* Footer (simple breadcrumb-style) */
+    .foot{max-width:1100px;margin:10px auto 36px;padding:0 20px;color:#6b7280}
+    .crumbs{display:flex;align-items:center;gap:10px;font-size:14px}
+    .crumbs a{color:#56637a;text-decoration:none}
+    .crumbs a:hover{text-decoration:underline}
+    .fine-links{display:flex;gap:16px;margin-top:10px}
+
+    .legal{border-top:1px solid var(--line);padding:16px 20px;display:flex;align-items:center;gap:12px;color:#6b7280}
+    .legal .logo{width:34px;height:34px;border-radius:10px;object-fit:contain}
+
+    /* Responsive */
+    @media (max-width:880px){
+      .founder{
+        grid-template-columns:1fr;
+      }
+      .section .bar{
+        width:100%;
+      }
+      .grid{
+        gap:28px 40px;
+      }
+    }
+
+    @media (max-width:600px){
+      .jhero__title{
+        font-size:22px;
+        letter-spacing:.2em;
+      }
+      .card{
+        width:200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top navigation -->
+  <header class="nav">
+    <div class="nav__inner">
+      <div class="nav__brand">
+        <!-- Replace with logo path -->
+        <img src="assets/ura-logo.png" alt="URA logo">
+        <span>URA Research Group</span>
+      </div>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="home.html">Home</a>
+        <a href="home.html#projects">Projects</a>
+        <a href="home.html#blogs">Blogs</a>
+        <a href="home.html#people" aria-current="page">People</a>
+        <a href="home.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="jhero">
+    <div class="jhero__inner">
+      <div class="jhero__title">URA RESEARCH GROUP</div>
+    </div>
+  </section>
+
+  <!-- Founder -->
+  <section class="section">
+    <h2>Founder</h2>
+    <div class="bar"></div>
+
+    <div class="founder">
+      <div class="founder__photo">
+        <!-- Replace with real image -->
+        <!-- <img src="assets/founder.jpg" alt="Assoc. Prof. Quan Thanh Tho"> -->
+      </div>
+      <div>
+        <div class="founder__rank">Assoc. Prof.</div>
+        <div class="founder__name">Quan Thanh Tho</div>
+        <div class="founder__vn">(Quản Thành Thơ)</div>
+        <p>
+          Dr. Quan Thanh Tho is an Associate Professor in the Faculty of Computer Science and Engineering,
+          Ho Chi Minh City University of Technology (HCMUT), Vietnam. He received his B.Eng. degree in
+          Information Technology from HCMUT in 1998 and his Ph.D degree in 2006 from Nanyang Technological
+          University, Singapore.
+        </p>
+        <p>
+          His current research interests include Artificial Intelligence, Natural Language Processing,
+          intelligent systems and formal methods. He is the Dean of the Faculty and Head of the URA
+          Research Group.
+        </p>
+        <a href="#" class="btn">Read Bio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Faculty / Members -->
+  <section class="section section--gray">
+    <div class="section__inner">
+      <h2>Faculty</h2>
+      <div class="bar"></div>
+
+      <div class="people-wrap">
+        <div class="grid">
+          <div class="card">
+            <div class="avatar"></div>
+            <div class="name">Tran Truong Tuan Phat</div>
+            <div class="vn">(Trần Trương Tuấn Phát)</div>
+            <div class="link"><a href="#">Read Bio</a></div>
+          </div>
+
+          <div class="card">
+            <div class="avatar"></div>
+            <div class="name">Mai Duc Trung</div>
+            <div class="vn">(Mai Đức Trung)</div>
+            <div class="link"><a href="#">Read Bio</a></div>
+          </div>
+
+          <div class="card">
+            <div class="avatar"></div>
+            <div class="name">Nguyen Anh Tam</div>
+            <div class="vn">(Nguyen Anh Tâm)</div>
+            <div class="link"><a href="#">Read Bio</a></div>
+          </div>
+
+          <div class="card">
+            <div class="avatar"></div>
+            <div class="name">Thi Khac Quan</div>
+            <div class="vn">(Thị Khắc Quân)</div>
+            <div class="link"><a href="#">Read Bio</a></div>
+          </div>
+
+          <div class="card">
+            <div class="avatar"></div>
+            <div class="name">Luong Minh Hien</div>
+            <div class="vn">(Lương Minh Hiển)</div>
+            <div class="link"><a href="#">Read Bio</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- International PhD Students -->
+  <section class="section">
+    <h2>International PhD Students</h2>
+    <div class="bar"></div>
+    <div class="grid">
+      <div class="card"><div class="avatar"></div><div class="name">Nguyen Quang Duc</div><div class="vn">(Nguyễn Quang Đức)</div><div class="role">PhD Student at NUS</div><div class="link"><a href="#">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"></div><div class="name">Vo Hoang Nhat Khang</div><div class="vn">(Võ Hoàng Nhật Khang)</div><div class="role">PhD Student at MBZUAI</div><div class="link"><a href="#">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"></div><div class="name">Nguyen Thi Ty</div><div class="vn">(Nguyễn Thị Ty)</div><div class="role">PhD Student at RMIT</div><div class="link"><a href="#">Read Bio</a></div></div>
+    </div>
+  </section>
+
+  <!-- PhD Students -->
+  <section class="section alt">
+    <h2>PhD Students</h2>
+    <div class="bar"></div>
+    <div class="grid">
+      <div class="card"><div class="avatar"></div><div class="name">Bui Cong Tuan</div><div class="vn">(Bùi Công Tuân)</div><div class="link"><a href="#">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"></div><div class="name">Phan Trung Hieu</div><div class="vn">(Phan Trung Hiếu)</div><div class="link"><a href="#">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"><img src="assets/lexinh.jpg" alt=""/></div><div class="name">Le Thi Xinh</div><div class="vn">(Lê Thị Xinh)</div><div class="link"><a href="#">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"><img src="assets/anh1.jpg" alt=""/></div><div class="name">Dung Cam Quang</div><div class="vn">(Dung Cẩm Quang)</div><div class="link"><a href="about.html">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"></div><div class="name">Hua Phuoc Truong</div><div class="vn">(Hứa Phước Trương)</div><div class="link"><a href="#">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"></div><div class="name">Ha Minh Duc</div><div class="vn">(Hà Minh Đức)</div><div class="link"><a href="#">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"><img src="assets/myngoc.jpg" alt=""/></div><div class="name">Truong Thi My Ngoc</div><div class="vn">(Trương Thị Mỹ Ngọc)</div><div class="role">PhD Student at VNUHCM-US</div><div class="link"><a href="#">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"></div><div class="name">Nguyen Ngoc Thai</div><div class="vn">(Nguyễn Ngọc Thái)</div><div class="link"><a href="#">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"></div><div class="name">Nguyen Thanh Tung</div><div class="vn">(Nguyên Thành Tùng)</div><div class="link"><a href="#">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"></div><div class="name">Nguyen Thanh Tung</div><div class="vn">(Nguyễn Thành Tùng)</div><div class="link"><a href="#">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"></div><div class="name">Nguyen Tran Thi</div><div class="vn">(Nguyên Trần Thị)</div><div class="link"><a href="#">Read Bio</a></div></div>
+    </div>
+  </section>
+
+  <!-- Senior RAs -->
+  <section class="section">
+    <h2>Senior Research Assistants</h2>
+    <div class="bar"></div>
+    <div class="grid">
+      <div class="card"><div class="avatar"></div><div class="name">La Nguyen Gia Hy</div><div class="vn">(Lã Nguyễn Gia Huy)</div><div class="link"><a href="#">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"></div><div class="name">Hung Luu</div><div class="vn">(Hùng Lưu)</div><div class="link"><a href="#">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"></div><div class="name">Hai Ha</div><div class="vn">(Hải Hà)</div><div class="link"><a href="#">Read Bio</a></div></div>
+    </div>
+  </section>
+
+  <!-- Research Assistants -->
+  <section class="section alt">
+    <h2>Research Assistants</h2>
+    <div class="bar"></div>
+    <div class="grid">
+      <div class="card"><div class="avatar"></div><div class="name">Nguyen Song Thien Long</div><div class="vn">(Nguyễn Song Thiên Long)</div><div class="link"><a href="#">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"></div><div class="name">Vo Thi Nhu Quynh</div><div class="vn">(Võ Thị Như Quỳnh)</div><div class="link"><a href="#">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"></div><div class="name">Nguyen Huu Nam Phong</div><div class="vn">(Nguyễn Hữu Nam Phong)</div><div class="link"><a href="#">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"></div><div class="name">Phan Thuy Dung</div><div class="vn">(Phan Thùy Dung)</div><div class="link"><a href="#">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"></div><div class="name">Pham Minh Trung</div><div class="vn">(Phạm Minh Trung)</div><div class="link"><a href="#">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"></div><div class="name">Pham Minh Hieu</div><div class="vn">(Phạm Minh Hiếu)</div><div class="link"><a href="#">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"></div><div class="name">Ngan Pham</div><div class="vn">(Ngân Phạm)</div><div class="link"><a href="#">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"></div><div class="name">Chi Phan</div><div class="vn">(Chi Phan)</div><div class="link"><a href="#">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"></div><div class="name">Dinh Trac Duc Anh</div><div class="vn">(Đinh Trác Đức Anh)</div><div class="link"><a href="#">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"></div><div class="name">Tai Ta</div><div class="vn">(Tài Tạ)</div><div class="link"><a href="#">Read Bio</a></div></div>
+      <div class="card"><div class="avatar"></div><div class="name">Tam Minh</div><div class="vn">(Tâm Minh)</div><div class="link"><a href="#">Read Bio</a></div></div>
+    </div>
+  </section>
+
+  <!-- Past Members -->
+  <section class="section">
+    <h2>Past Members</h2>
+    <div class="bar"></div>
+    <div class="grid">
+      <div class="card">
+        <div class="avatar"></div>
+        <div class="name">Dr. Pham Cong Thien</div>
+        <div class="vn">(Phạm Công Thiện)</div>
+        <div class="link"><a href="#">Read Bio</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="foot">
+    <div class="crumbs" aria-label="Breadcrumb">
+      <a href="home.html">Home</a>
+      <span>›</span>
+      <a href="home.html#people">People</a>
+    </div>
+    <div class="fine-links">
+      <a href="paper.html">Paper</a>
+      <span>|</span>
+      <a href="home.html#contact">Contact</a>
+      <span>|</span>
+      <a href="home.html">Login</a>
+    </div>
+  </div>
+
+  <footer class="legal">
+    <img class="logo" src="assets/URA_logo_1024.png" alt="URA emblem" />
+    <div>© URA @ HCMUT. All rights reserved.</div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>URA – Paper</title>
+  <style>
+    :root{--bg:#f3f5f7;--card:#ffffff;--ink:#0e1726;--muted:#606b85;--line:#e5e7eb;--accent:#0b84fe}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--ink);background:var(--bg)}
+
+    /* Top nav */
+    .nav{background:#fff;border-bottom:1px solid var(--line)}
+    .nav__inner{max-width:1100px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:18px}
+    .nav__brand{display:flex;align-items:center;gap:10px;font-weight:700}
+    .nav__brand img{width:28px;height:28px}
+    .nav__links{margin-left:auto;display:flex;gap:22px}
+    .nav__links a{color:#334155;text-decoration:none;font-weight:500}
+    .nav__links a:hover{color:var(--ink)}
+
+    /* Header / hero */
+    .hero{background:#e9edf2;border-bottom:1px solid var(--line)}
+    .hero__inner{max-width:1100px;margin:0 auto;padding:36px 20px 28px}
+
+    /* FIX: use 2 columns (avatar + name block) */
+    .profile{
+      display:grid;
+      grid-template-columns:128px 1fr; /* FIX */
+      gap:22px;
+      align-items:center
+    }
+
+    .avatar{width:128px;height:128px;border-radius:50%;overflow:hidden;display:grid;place-items:center;background:#dbe3ec;border:6px solid #fff;box-shadow:0 6px 16px rgba(2,8,23,.06)}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+
+    .who{max-width:720px} /* FIX: optional width for the name block */
+    .who h1{font-size:28px;margin:0 0 6px;letter-spacing:.2px}
+    .subtitle{color:#3b4458;font-weight:600} /* FIX: unscoped to .who for reuse */
+    .role{color:#6b7280;font-weight:700}      /* FIX: role now lives inside .meta */
+
+    /* FIX: divider spans full width of name block */
+    .divider{height:3px;background:#0e1726;margin-top:6px;width:100%;max-width:100%} /* FIX */
+
+    /* FIX: subtitle left, role right (same row under the line) */
+    .meta{
+      display:flex;                  /* FIX */
+      justify-content:space-between; /* FIX */
+      align-items:center;            /* FIX */
+      margin-top:6px;                /* FIX */
+    }
+
+    /* Tabs */
+    .tabs{max-width:1100px;margin:0 auto;padding:14px 20px 0;display:flex;gap:30px}
+    .tab{position:relative;padding:10px 2px;font-weight:600;color:#1f2937;text-decoration:none}
+    .tab.active{color:var(--accent)}
+    .tab.active::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--accent);border-radius:999px}
+
+    /* Content card */
+    .card{max-width:1100px; margin:8px auto 32px; background:var(--card); border:1px solid var(--line); border-radius:14px; box-shadow:0 10px 30px rgba(2,8,23,.04);}
+    .card__inner{padding:24px 20px}
+
+    .grid{display:grid; grid-template-columns:220px 1fr; row-gap:18px; column-gap:18px}
+    .label{color:var(--muted); font-weight:600}
+    .value{color:#0f172a}
+
+/* Use the parent .grid’s two columns for this row */
+.topic{
+  grid-column: unset;       /* don't span full width */
+  display: contents;        /* act like the wrapper isn't there */
+}
+
+/* Remove the special box styling */
+.topic .value{
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font-weight: 400;         /* same as other values */
+  box-shadow: none;
+}
+
+
+    /* Breadcrumb + footer */
+    .foot{max-width:1100px; margin:10px auto 36px; padding:0 20px; color:#6b7280}
+    .crumbs{display:flex; align-items:center; gap:10px; font-size:14px}
+    .crumbs a{color:#56637a; text-decoration:none}
+    .crumbs a:hover{text-decoration:underline}
+    .fine-links{display:flex; gap:16px; margin-top:10px}
+
+    .legal{border-top:1px solid var(--line); padding:16px 20px; display:flex; align-items:center; gap:12px; color:#6b7280}
+    .legal .logo{ width:34px; height:34px; border-radius:10px; object-fit:contain; }
+
+    /* Responsive */
+    @media (max-width:740px){
+      .profile{grid-template-columns:86px 1fr}
+      .role{grid-column:1/-1}
+      .grid, .topic{grid-template-columns:1fr}
+      .who h1{font-size:22px}
+      .nav__links{gap:14px}
+    }
+  </style>
+</head>
+<body>
+  <!-- Top navigation -->
+  <header class="nav">
+    <div class="nav__inner">
+      <div class="nav__brand">
+        <!-- Replace with your SVG/logo -->
+        <img src="assets/URA_logo_1024.png" alt="URA logo" />
+        <span>URA Research Group</span>
+      </div>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="home.html">Home</a>
+        <a href="home.html">Projects</a>
+        <a href="home.html#blogs">Blogs</a>
+        <a href="home.html#people" aria-current="page">People</a>
+        <a href="home.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Header / hero area -->
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="profile">
+        <div class="avatar" aria-hidden="true">
+          <img src="assets/Quang.jpg" alt="" />
+        </div>
+
+        <!-- FIX: role moved inside .who and grouped with subtitle -->
+        <div class="who">
+          <h1>Dung Cam Quang</h1>
+          <div class="divider" aria-hidden="true"></div>
+          <div class="meta"> <!-- FIX -->
+            <div class="subtitle">Dung Cẩm Quang</div>
+            <div class="role">PhD Student</div>
+          </div>
+        </div>
+        <!-- (Removed the separate role div that used to be a third column) -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Tabs -->
+  <nav class="tabs" aria-label="Profile sections">
+    <a class="tab active" href="about.html">About</a>
+    <a class="tab" href="paper.html">Paper</a>
+    <a class="tab" href="support_member.html">Support Members</a>
+  </nav>
+
+  <!-- Content card -->
+  <main class="card" id="about">
+    <div class="card__inner grid">
+      <div class="label">Year of Admission</div>
+      <div class="value">2025</div>
+
+      <div class="label">Year of Graduation</div>
+      <div class="value">–</div>
+
+      <div class="label">Email</div>
+      <div class="value"><a href="mailto:quang.dungcse@hcmut.edu.vn">quang.dungcse@hcmut.edu.vn</a></div>
+
+      <div class="label">Research Interest</div>
+      <div class="value">
+        Machine Learning<br/>
+        Large Language Model<br/>
+        Graph Neural Networks
+      </div>
+
+      <div class="topic">
+        <div class="label">Specific Research Topic</div>
+        <div class="value">Event Extraction in Vietnamese Corpus</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Breadcrumbs + footer links -->
+  <div class="foot">
+    <div class="crumbs" aria-label="Breadcrumb">
+      <a href="home.html">Home</a>
+      <span>›</span>
+      <a href="home.html#people">People</a>
+    </div>
+    <div class="fine-links">
+      <a href="paper.html">Paper</a>
+      <span>|</span>
+      <a href="home.html#contact">Contact</a>
+      <span>|</span>
+      <a href="home.html">Login</a>
+    </div>
+  </div>
+
+  <!-- Legal bar -->
+  <footer class="legal">
+    <img class="logo" src="assets/URA_logo_1024.png" alt="URA emblem" />
+    <div class="text">© URA @ HCMUT. All rights reserved.</div>
+  </footer>
+</body>
+</html>
