@@ -15,13 +15,14 @@
     body{font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
 
     /* NAV */
-    .nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
-    .nav__in{max-width:var(--max);margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:18px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:600}
-    .brand__logo{width:32px;height:32px;border-radius:50%;background:#0f172a}
-    .links{margin-left:auto;display:flex;gap:26px;font-size:14px;color:#475569}
-    .links a{position:relative;padding-bottom:2px;text-decoration:none;color:inherit}
-    .links a:hover::after,.links a.active::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--primary);border-radius:999px}
+    /* Top nav */
+    .nav{background:#fff;border-bottom:1px solid var(--line)}
+    .nav__inner{max-width:1100px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:18px}
+    .nav__brand{display:flex;align-items:center;gap:10px;font-weight:700}
+    .nav__brand img{width:28px;height:28px}
+    .nav__links{margin-left:auto;display:flex;gap:22px}
+    .nav__links a{color:#334155;text-decoration:none;font-weight:500}
+    .nav__links a:hover{color:var(--ink)}
 
     /* HERO */
     .hero{padding:80px 24px 60px;background:#fff;text-align:center}
@@ -35,11 +36,13 @@
     .wrap{max-width:var(--max);margin:0 auto}
     .head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px}
     .h2{font-size:20px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
-    .bar{height:2px;background:#0f172a;margin:10px 0 22px}
+    /* remove the tiny underline under headings */
+    .h2::after{content:none !important;}
     .btn{padding:8px 20px;border-radius:999px;border:none;background:var(--primary);color:#fff;box-shadow:var(--shadow);font-size:13px;font-weight:600;cursor:pointer}
 
     /* ABOUT */
     .about{font-size:14px;color:#374151;display:grid;gap:12px}
+    .bar{height:2px;background:#0f172a;margin:10px 0 22px}
 
     /* BLOGS */
     .blogs{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:18px}
@@ -50,8 +53,18 @@
     .placeholder{background:#fff;border-radius:var(--r-lg);box-shadow:var(--shadow)}
 
     /* LEADER */
-    .lead-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.6fr);gap:26px;align-items:center}
-    .lead-photo{width:100%;height:260px;background:#d1d5db;border-radius:var(--r-lg);overflow:hidden}
+    .lead-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.2fr) minmax(0,1.6fr);
+      gap:26px;
+      align-items:flex-start;       /* was center — now text aligns to top */
+    }
+    .lead-photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
     .lead-rank{color:var(--muted);font-weight:700;font-size:14px}
     .lead-name{font-size:26px;font-weight:800;margin:4px 0 2px}
     .lead-vn{color:var(--muted);font-size:12px;margin-bottom:8px}
@@ -71,10 +84,23 @@
     .btn-send{padding:11px 18px;border-radius:10px;border:none;background:var(--accent);color:#fff;font-weight:700;font-size:13px;cursor:pointer;letter-spacing:.05em}
 
     /* FOOT */
-    .foot{max-width:var(--max);margin:10px auto 36px;padding:0 24px;color:#6b7280}
-    .crumbs{display:flex;gap:10px;font-size:14px}
-    .legal{border-top:1px solid var(--line);padding:16px 24px;display:flex;align-items:center;gap:12px;color:#6b7280}
-    .logo{width:34px;height:34px;border-radius:10px;background:#0f172a}
+    .foot{max-width:1100px;margin:10px auto 36px;padding:0 20px;color:#6b7280}
+    .crumbs{display:flex;align-items:center;gap:10px;font-size:14px}
+    .crumbs a{color:#56637a;text-decoration:none}
+    .crumbs a:hover{text-decoration:underline}
+    .fine-links{display:flex;gap:16px;margin-top:10px}
+
+    .legal{border-top:1px solid var(--line);padding:16px 20px;display:flex;align-items:center;gap:12px;color:#6b7280}
+    .legal .logo{width:34px;height:34px;border-radius:10px;object-fit:contain}
+
+    /* long full-width divider under header rows */
+    .head-wide{position:relative;align-items:center;padding-bottom:10px}
+    .head-wide::after{
+      content:"";
+      position:absolute;
+      left:0; right:0; bottom:0;
+      height:2px; background:#0f172a; border-radius:1px;
+    }
 
     /* RESP */
     @media (max-width:900px){
@@ -92,17 +118,18 @@
 <body>
 
   <!-- NAV -->
+
   <header class="nav">
-    <div class="nav__in">
-      <div class="brand">
-        <div class="brand__logo"></div>
+    <div class="nav__inner">
+      <div class="nav__brand">
+        <img src="assets/URA_logo_1024.png" alt="URA logo" />
         <span>URA Research Group</span>
       </div>
-      <nav class="links">
-        <a class="active" href="#">Home</a>
-        <a href="#projects">Projects</a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="home.html">Home</a>
+        <a href="home.html">Projects</a>
         <a href="#blogs">Blogs</a>
-        <a href="#people">People</a>
+        <a href="#people" aria-current="page">People</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -134,10 +161,10 @@
   <!-- BLOGS -->
   <section id="blogs" class="sec sec--gray">
     <div class="wrap">
-      <div class="head">
+      <div class="head head-wide">
         <div>
           <h2 class="h2">BLOGS</h2>
-          <div class="bar" style="width:100%"></div>
+          <!-- removed the short bar here -->
         </div>
         <a class="btn" href="blogs.html">View all blogs</a>
       </div>
@@ -157,18 +184,17 @@
   <!-- LEADER -->
   <section id="people" class="sec">
     <div class="wrap">
-      <div class="head">
+      <div class="head head-wide">
         <div>
-          <h2 class="h2">LEADER</h2>
-          <div class="bar" style="width:100%"></div>
+          <h2 class="h2">FOUNDER</h2>
+          <!-- removed the short bar here -->
         </div>
-        <!-- This button aligns to the RIGHT like the blogs one -->
         <a class="btn" href="people.html">View all Members</a>
       </div>
 
       <div class="lead-grid">
         <div class="lead-photo">
-          <!-- <img src="assets/leader.jpg" alt="Assoc. Prof. Quan Thanh Tho"> -->
+          <img src="assets/Tho.jpg" alt="Assoc. Prof. Quan Thanh Tho">
         </div>
         <div>
           <div class="lead-rank">Assoc. Prof.</div>
@@ -205,12 +231,12 @@
     <div class="crumbs" aria-label="Breadcrumb">
       <a href="home.html">Home</a>
       <span>›</span>
-      <a href="#people">People</a>
+      <a href="home.html#people">People</a>
     </div>
     <div class="fine-links">
-      <a href="home.html">Paper</a>
+      <a href="paper.html">Paper</a>
       <span>|</span>
-      <a href="#contact">Contact</a>
+      <a href="home.html#contact">Contact</a>
       <span>|</span>
       <a href="home.html">Login</a>
     </div>
