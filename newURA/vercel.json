@@ -1,0 +1,10 @@
+{
+    "version": 2,
+    "rewrites": [
+        { "source": "/", "destination": "/home.html" },
+        { "source": "/about", "destination": "/about.html" },
+        { "source": "/people", "destination": "/people.html" },
+        { "source": "/paper", "destination": "/paper.html" },
+        { "source": "/support-member", "destination": "/support_member.html" }
+    ]
+}
