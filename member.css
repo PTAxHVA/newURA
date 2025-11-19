@@ -1,0 +1,464 @@
+/* member.css – Combined About / Publications / Team page
+   Consistent with about.css / paper.css / support_member.css
+*/
+
+:root {
+  --bg: #f3f5f7;
+  --card: #ffffff;
+  --ink: #0e1726;
+  --muted: #606b85;
+  --line: #e5e7eb;
+  --primary: #0a66ff;
+  --accent: #3EC1D5;
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, .06);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, .08);
+  --shadow-lg: 0 10px 30px rgba(15, 23, 42, .1);
+  --shadow-xl: 0 16px 40px rgba(15, 23, 42, .15);
+  --r-lg: 14px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .fade-in {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+}
+
+/* =========================
+   Top navigation
+   ========================= */
+
+.nav {
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+.nav__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  transition: opacity 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.nav__brand:hover {
+  opacity: 0.8;
+}
+
+.nav__brand img {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+}
+
+.nav__links {
+  margin-left: auto;
+  display: flex;
+  gap: 28px;
+}
+
+.nav__links a {
+  color: #334155;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  font-size: 14px;
+  position: relative;
+}
+
+.nav__links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.nav__links a:hover {
+  color: var(--accent);
+}
+
+.nav__links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* =========================
+   Main layout (sidebar + content)
+   ========================= */
+
+.member-layout {
+  max-width: 1100px;
+  margin: 32px auto 40px;
+  padding: 0 20px 40px;
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 48px;
+}
+
+/* Sidebar */
+
+.member-sidebar {
+  background: #f2f4fb;
+  border-radius: 20px;
+  padding: 32px 24px 28px;
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  position: sticky;
+  top: 80px;
+  align-self: flex-start;
+}
+
+.member-avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 20px;
+  background: #dbe3ec;
+  border: 6px solid #ffffff;
+  box-shadow: 0 6px 16px rgba(2, 8, 23, 0.06);
+}
+
+.member-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.member-name {
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.member-role {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* Sidebar nav (ABOUT / PUBLICATIONS / TEAM) */
+
+.side-nav {
+  margin-top: 28px;
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.side-nav li + li {
+  margin-top: 10px;
+}
+
+.side-nav a {
+  display: inline-block;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #4b5563;
+  padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.side-nav a:hover,
+.side-nav a:focus {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.side-nav a.is-active {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Content area */
+
+.member-content {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 28px 32px 32px;
+  box-shadow: var(--shadow-md);
+}
+
+/* Sections */
+
+.section {
+  margin-bottom: 40px;
+}
+
+.section:last-of-type {
+  margin-bottom: 0;
+}
+
+.section-title {
+  font-size: 18px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: 18px;
+}
+
+.section-body {
+  font-size: 14px;
+  color: #374151;
+}
+
+.section-body p + p {
+  margin-top: 14px;
+}
+
+.section-body strong {
+  font-weight: 700;
+}
+
+.section-body a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.section-body a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* =========================
+   Publications – simple list
+   ========================= */
+
+.pub-list {
+  list-style: decimal;
+  margin: 8px 0 0 1.4rem;
+  padding: 0;
+}
+
+.pub-item {
+  margin: 6px 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #374151;
+}
+
+.pub-item + .pub-item {
+  margin-top: 8px;
+}
+
+.pub-title {
+  font-style: italic;
+}
+
+.pub-me {
+  font-weight: 700;
+  text-decoration: underline;
+  color: var(--primary);
+}
+
+.pub-venue {
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* =========================
+   Team / Support Members
+   ========================= */
+
+.team-group {
+  margin-bottom: 22px;
+}
+
+.team-group:last-of-type {
+  margin-bottom: 0;
+}
+
+.team-group-title {
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.team-list {
+  margin-left: 18px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.team-list li + li {
+  margin-top: 4px;
+}
+
+/* =========================
+   Footer
+   ========================= */
+
+.foot {
+  max-width: 1100px;
+  margin: 0 auto 20px;
+  padding: 0 20px;
+  color: #6b7280;
+}
+
+.crumbs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.crumbs a {
+  color: #56637a;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.crumbs a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.fine-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.fine-links a {
+  color: #56637a;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.fine-links a:hover {
+  color: var(--accent);
+}
+
+.legal {
+  border-top: 1px solid var(--line);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #6b7280;
+  background: #f9fafb;
+  font-size: 13px;
+  max-width: 1100px;
+  margin: 0 auto 32px;
+}
+
+.legal .logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 880px) {
+  .member-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 24px;
+  }
+
+  .member-sidebar {
+    position: static;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .member-content {
+    padding: 20px 18px 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav__links {
+    gap: 12px;
+    font-size: 12px;
+  }
+
+  .member-avatar {
+    width: 140px;
+    height: 140px;
+  }
+
+  .member-name {
+    font-size: 18px;
+  }
+
+  .section-title {
+    font-size: 16px;
+    letter-spacing: 0.18em;
+  }
+
+  .pub-item {
+    font-size: 13px;
+  }
+}

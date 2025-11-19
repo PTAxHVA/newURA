@@ -505,23 +505,23 @@ body {
 .lead-rank {
   color: var(--accent);
   font-weight: 700;
-  font-size: 13px;
+  font-size: 14px;
   text-transform: uppercase;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.5px;
 }
 
 .lead-name {
   font-size: 32px;
   font-weight: 800;
-  margin: 4px 0;
+  margin: 6px 0 4px;
   color: var(--ink);
-  font-family: 'Raleway', sans-serif;
 }
 
 .lead-vn {
-  color: var(--muted);
-  font-size: 13px;
+  color: #6b7280;
+  font-weight: 600;
   font-style: italic;
+  margin-bottom: 14px;
 }
 
 .lead-txt {

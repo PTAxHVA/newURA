@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>URA – Member</title>
+    <link rel="stylesheet" href="member.css" />
+  </head>
+  <body>
+    <!-- Top navigation -->
+    <header class="nav">
+      <div class="nav__inner">
+        <div class="nav__brand">
+          <img src="assets/URA_logo_1024.png" alt="URA logo" />
+          <span>URA Research Group</span>
+        </div>
+        <nav class="nav__links" aria-label="Primary">
+          <a href="home.html">Home</a>
+          <a href="home.html#projects">Projects</a>
+          <a href="home.html#blogs">Blogs</a>
+          <a href="home.html#people">People</a>
+          <a href="home.html#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main two-column layout -->
+    <main class="member-layout">
+      <!-- Sidebar -->
+      <aside class="member-sidebar fade-in">
+        <div class="member-avatar" aria-hidden="true">
+          <!-- Change this image per member -->
+          <img src="assets/Quang.jpg" alt="Profile photo of member" />
+        </div>
+
+        <div class="member-name">Dung Cam Quang</div>
+        <div class="member-role">PhD Student</div>
+
+        <ul class="side-nav" aria-label="Profile sections">
+          <li>
+            <a href="#about" class="is-active">About</a>
+          </li>
+          <li>
+            <a href="#publications">Publications</a>
+          </li>
+          <li>
+            <a href="#team">Team</a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Content -->
+      <div class="member-content fade-in">
+        <!-- ABOUT -->
+        <section id="about" class="section section--about">
+          <h2 class="section-title">About Me</h2>
+          <div class="section-body">
+            <p>
+              Hi! I am <strong>Dung Cam Quang</strong>, a PhD student at the URA
+              Research Group, Ho Chi Minh City University of Technology
+              (HCMUT).
+            </p>
+
+            <p>
+              My research interests lie in the intersection of
+              <strong>Machine Learning</strong>,
+              <strong>Large Language Models</strong>, and
+              <strong>Graph Neural Networks</strong>.
+            </p>
+
+            <p>
+              Email:
+              <a href="mailto:quang.dungcse@hcmut.edu.vn"
+                >quang.dungcse@hcmut.edu.vn</a
+              ><br />
+            </p>
+
+            <p>
+              <strong>Note.</strong> Feel free to contact me.
+            </p>
+          </div>
+        </section>
+
+        <!-- PUBLICATIONS -->
+        <section id="publications" class="section section--pubs">
+          <h2 class="section-title">Publications</h2>
+          <div class="section-body">
+            <p>
+              For the full publication list, please refer to my
+              <a
+                href="https://scholar.google.com/citations?user=fxw7-lkAAAAJ&hl=en"
+                target="_blank"
+                rel="noopener"
+                >Google Scholar page</a
+              >.
+            </p>
+
+            <p>Conference papers::</p>
+
+            <ol class="pub-list">
+              <li class="pub-item">
+                N.-T. Phong, N.-H.-K. Yen, N.-H. An,
+                <span class="pub-me">D.-C. Quang</span>,
+                “Leveraging Deep Neural Networks for Regional Weather
+                Forecasting in Vietnam,” in
+                <span class="pub-venue"
+                  >Computational Intelligence in Engineering Science (ICClES
+                  2025)</span
+                >, 2025, pp. 209–223.
+              </li>
+
+              <li class="pub-item">
+                L.-T. Tien, N.-H. An,
+                <span class="pub-me">D.-C. Quang</span>, “VNExpirationDate: A
+                Novel Expiration Date Dataset and a Robust Framework for
+                Expiration Date Recognition on Complex Packaging in Vietnam,” in
+                <span class="pub-venue"
+                  >2024 RIVF International Conference on Computing and
+                  Communication Technologies (RIVF)</span
+                >, 2024, pp. 388–392.
+              </li>
+
+              <li class="pub-item">
+                <span class="pub-me">D.-C. Quang</span>, N.-H. An, V.-V. Le,
+                “In-Depth with Spatial-Temporal Graph Neural Networks for
+                Traffic Forecasting: An Overview with Attention,” in
+                <span class="pub-venue"
+                  >Conference on Information Technology and its Applications
+                  (CITA 2024)</span
+                >, 2024, pp. 295–306.
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- TEAM / SUPPORT MEMBERS -->
+        <section id="team" class="section section--team">
+          <h2 class="section-title">Team</h2>
+          <div class="section-body">
+            <div class="team-group">
+              <div class="team-group-title">PhD Students</div>
+              <ul class="team-list">
+                <li>Vo Quang Vinh</li>
+                <li>Cao Nguyen Thien Hoang</li>
+                <li>Truong Van Khang</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Breadcrumbs + footer -->
+    <div class="foot">
+      <div class="crumbs" aria-label="Breadcrumb">
+        <a href="home.html">Home</a>
+        <span>›</span>
+        <a href="home.html#people">People</a>
+      </div>
+      <div class="fine-links">
+        <a href="#publications">Papers</a>
+        <span>|</span>
+        <a href="home.html#contact">Contact</a>
+        <span>|</span>
+        <a href="home.html">Login</a>
+      </div>
+    </div>
+
+    <footer class="legal">
+      <img class="logo" src="assets/URA_logo_1024.png" alt="URA emblem" />
+      <div>© URA @ HCMUT. All rights reserved.</div>
+    </footer>
+
+    <!-- Make sidebar highlight the active section -->
+<script>
+  const sections = document.querySelectorAll(".section");
+  const navLinks = document.querySelectorAll(".side-nav a");
+
+  function setActive(id) {
+    navLinks.forEach((link) => {
+      const target = link.getAttribute("href").substring(1);
+      link.classList.toggle("is-active", target === id);
+    });
+  }
+
+  function onScroll() {
+    let closestId = null;
+    let closestDistance = Infinity;
+    const offset = 200; // adjust how far down the page the "target point" is
+
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      const distance = Math.abs(rect.top - offset);
+
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestId = section.id;
+      }
+    });
+
+    if (closestId) setActive(closestId);
+  }
+
+  window.addEventListener("scroll", onScroll);
+  window.addEventListener("load", onScroll);
+</script>
+
