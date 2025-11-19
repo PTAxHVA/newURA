@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="member.css" />
   </head>
   <body>
-    <!-- Top navigation -->
+    <!-- Top navigation (DÙNG CHUNG, KHÔNG CẦN SỬA) -->
     <header class="nav">
       <div class="nav__inner">
         <div class="nav__brand">
@@ -24,18 +24,24 @@
       </div>
     </header>
 
-    <!-- Main two-column layout -->
+    <!-- =========================
+         MAIN LAYOUT
+         ========================= -->
     <main class="member-layout">
-      <!-- Sidebar -->
+      <!-- ========== SIDEBAR ========== -->
+      <!-- TODO: Mỗi member CHỈ CẦN SỬA block <aside> này: avatar, name, role, menu nếu muốn đổi tên -->
       <aside class="member-sidebar fade-in">
         <div class="member-avatar" aria-hidden="true">
-          <!-- Change this image per member -->
+          <!-- TODO: Đổi ảnh profile cho từng người -->
           <img src="assets/Quang.jpg" alt="Profile photo of member" />
         </div>
 
+        <!-- TODO: Đổi tên và chức danh -->
         <div class="member-name">Dung Cam Quang</div>
         <div class="member-role">PhD Student</div>
 
+        <!-- Side menu: About / Publications / Team
+             LƯU Ý: href="#id" phải trùng với id của <section> ở bên content -->
         <ul class="side-nav" aria-label="Profile sections">
           <li>
             <a href="#about" class="is-active">About</a>
@@ -46,21 +52,29 @@
           <li>
             <a href="#team">Team</a>
           </li>
+          <!--
+          TODO: Nếu muốn thêm section mới, ví dụ "Teaching":
+          1) Thêm <li><a href="#teaching">Teaching</a></li> ở đây
+          2) Thêm <section id="teaching" ...> ở phần content bên dưới
+          -->
         </ul>
       </aside>
 
-      <!-- Content -->
+      <!-- ========== MAIN CONTENT ========== -->
       <div class="member-content fade-in">
-        <!-- ABOUT -->
+        <!-- ========== ABOUT SECTION ========== -->
+        <!-- TODO: ĐÂY LÀ PHẦN GIỚI THIỆU, mỗi người tự sửa nội dung bên trong .section-body -->
         <section id="about" class="section section--about">
           <h2 class="section-title">About Me</h2>
           <div class="section-body">
+            <!-- TODO: Đoạn giới thiệu ngắn -->
             <p>
               Hi! I am <strong>Dung Cam Quang</strong>, a PhD student at the URA
               Research Group, Ho Chi Minh City University of Technology
               (HCMUT).
             </p>
 
+            <!-- TODO: Research interests -->
             <p>
               My research interests lie in the intersection of
               <strong>Machine Learning</strong>,
@@ -68,23 +82,27 @@
               <strong>Graph Neural Networks</strong>.
             </p>
 
+            <!-- TODO: Email (Nhớ sửa cả href lẫn text) -->
             <p>
               Email:
               <a href="mailto:quang.dungcse@hcmut.edu.vn"
                 >quang.dungcse@hcmut.edu.vn</a
-              ><br />
+              >
             </p>
 
+            <!-- TODO: Có thể sửa / xóa Note nếu không cần -->
             <p>
               <strong>Note.</strong> Feel free to contact me.
             </p>
           </div>
         </section>
 
-        <!-- PUBLICATIONS -->
+        <!-- ========== PUBLICATIONS SECTION ========== -->
+        <!-- TODO: Mỗi người sửa link Google Scholar + danh sách bài báo trong <ol> -->
         <section id="publications" class="section section--pubs">
           <h2 class="section-title">Publications</h2>
           <div class="section-body">
+            <!-- TODO: Sửa link Google Scholar của từng người -->
             <p>
               For the full publication list, please refer to my
               <a
@@ -95,8 +113,13 @@
               >.
             </p>
 
-            <p>Conference papers::</p>
 
+            <p>Conference papers:</p>
+
+            <!-- TODO: Danh sách bài báo.
+                 Cách thêm bài mới:
+                 1) Copy một <li class="pub-item">...</li>
+                 2) Dán ngay dưới và sửa lại thông tin -->
             <ol class="pub-list">
               <li class="pub-item">
                 N.-T. Phong, N.-H.-K. Yen, N.-H. An,
@@ -133,24 +156,38 @@
           </div>
         </section>
 
-        <!-- TEAM / SUPPORT MEMBERS -->
+        <!-- ========== TEAM SECTION ========== -->
+        <!-- TODO: Phần liệt kê thành viên / collaborators liên quan tới người này -->
         <section id="team" class="section section--team">
           <h2 class="section-title">Team</h2>
           <div class="section-body">
+            <!-- Có thể chia thành nhiều group: PhD Students, Research Fellows, Undergrads,... -->
             <div class="team-group">
               <div class="team-group-title">PhD Students</div>
               <ul class="team-list">
+                <!-- TODO: Thêm / bớt tên ở đây -->
                 <li>Vo Quang Vinh</li>
                 <li>Cao Nguyen Thien Hoang</li>
                 <li>Truong Van Khang</li>
               </ul>
             </div>
+
+            <!--
+            TODO: Ví dụ thêm group khác:
+            <div class="team-group">
+              <div class="team-group-title">Undergraduate Students</div>
+              <ul class="team-list">
+                <li>Student A</li>
+                <li>Student B</li>
+              </ul>
+            </div>
+            -->
           </div>
         </section>
       </div>
     </main>
 
-    <!-- Breadcrumbs + footer -->
+    <!-- ========== Breadcrumbs + footer (dùng chung) ========== -->
     <div class="foot">
       <div class="crumbs" aria-label="Breadcrumb">
         <a href="home.html">Home</a>
@@ -171,37 +208,38 @@
       <div>© URA @ HCMUT. All rights reserved.</div>
     </footer>
 
-    <!-- Make sidebar highlight the active section -->
-<script>
-  const sections = document.querySelectorAll(".section");
-  const navLinks = document.querySelectorAll(".side-nav a");
+    <!-- ========== JS: auto highlight menu theo section (KHÔNG CẦN SỬA) ========== -->
+    <script>
+      const sections = document.querySelectorAll(".section");
+      const navLinks = document.querySelectorAll(".side-nav a");
 
-  function setActive(id) {
-    navLinks.forEach((link) => {
-      const target = link.getAttribute("href").substring(1);
-      link.classList.toggle("is-active", target === id);
-    });
-  }
-
-  function onScroll() {
-    let closestId = null;
-    let closestDistance = Infinity;
-    const offset = 200; // adjust how far down the page the "target point" is
-
-    sections.forEach((section) => {
-      const rect = section.getBoundingClientRect();
-      const distance = Math.abs(rect.top - offset);
-
-      if (distance < closestDistance) {
-        closestDistance = distance;
-        closestId = section.id;
+      function setActive(id) {
+        navLinks.forEach((link) => {
+          const target = link.getAttribute("href").substring(1);
+          link.classList.toggle("is-active", target === id);
+        });
       }
-    });
 
-    if (closestId) setActive(closestId);
-  }
+      function onScroll() {
+        let closestId = null;
+        let closestDistance = Infinity;
+        const offset = 200; // khoảng cách từ top để tính section "gần nhất"
 
-  window.addEventListener("scroll", onScroll);
-  window.addEventListener("load", onScroll);
-</script>
+        sections.forEach((section) => {
+          const rect = section.getBoundingClientRect();
+          const distance = Math.abs(rect.top - offset);
 
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestId = section.id;
+          }
+        });
+
+        if (closestId) setActive(closestId);
+      }
+
+      window.addEventListener("scroll", onScroll);
+      window.addEventListener("load", onScroll);
+    </script>
+  </body>
+</html>
