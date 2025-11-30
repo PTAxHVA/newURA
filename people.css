@@ -1,17 +1,23 @@
 /* people.css - Modern enhanced styles for original people layout */
 :root {
-  --bg: #f3f5f7;
-  --card: #ffffff;
-  --ink: #0e1726;
-  --muted: #606b85;
-  --line: #e5e7eb;
   --primary: #0a66ff;
-  --accent: #3EC1D5;
-  --shadow-sm: 0 2px 8px rgba(15, 23, 42, .06);
-  --shadow-md: 0 4px 12px rgba(15, 23, 42, .08);
-  --shadow-lg: 0 10px 30px rgba(15, 23, 42, .1);
-  --shadow-xl: 0 16px 40px rgba(15, 23, 42, .15);
+  --primary-dark: #0656e6;
+  --accent: #0064e0;
+  --accent-light: #0064e0;
+  --ink: #111827;
+  --ink-light: #1f2937;
+  --muted: #6b7280;
+  --muted-light: #9ca3af;
+  --line: #e5e7eb;
+  --bg: #f3f5f7;
+  --soft: #f8fafc;
+  --max: 1120px;
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 10px 30px rgba(15, 23, 42, 0.1);
+  --shadow-xl: 0 16px 40px rgba(15, 23, 42, 0.15);
   --r-lg: 14px;
+  --r-md: 10px;
 }
 
 * {
@@ -20,16 +26,33 @@
   padding: 0;
 }
 
-html, body {
-  height: 100%;
+html {
+  font-size: 62.5%;
 }
 
 body {
-  margin: 0;
-  font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Stack Sans Text", sans-serif;
+
   color: var(--ink);
-  background: var(--bg);
+  background: #fff;
   line-height: 1.6;
+  overflow-x: hidden;
+
+  font-size: 1.8rem;
+}
+
+.content {
+  max-width: 68.75%;
+  padding: 0 4px;
+  margin: auto;
+}
+
+.bar {
+  height: 4px;
+  background: var(--ink);
+  margin: 0 0 28px;
+  border-radius: 2px;
+  width: 100%;
 }
 
 a {
@@ -63,12 +86,12 @@ a {
   top: 0;
   z-index: 100;
   box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
 }
 
 .nav__inner {
-  max-width: 1100px;
   margin: 0 auto;
-  padding: 12px 20px;
+  padding: 7px 0px;
   display: flex;
   align-items: center;
   gap: 18px;
@@ -77,37 +100,36 @@ a {
 .nav__brand {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-weight: 700;
-  transition: opacity .3s ease;
+  font-weight: 800;
   letter-spacing: 0.5px;
+  transition: opacity 0.3s ease;
+  font-size: 2.8rem;
 }
 
 .nav__brand:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .nav__brand img {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
+  width: 69px;
 }
 
 .nav__links {
   margin-left: auto;
   display: flex;
-  gap: 28px;
+  gap: 70px;
 }
 
 .nav__links a {
   color: #334155;
   text-decoration: none;
   font-weight: 500;
-  transition: color .3s ease;
-  font-size: 14px;
+  font-size: 1.8rem;
   position: relative;
+  transition: color 0.3s ease;
 }
 
+/* Link underline animation */
 .nav__links a::after {
   content: "";
   position: absolute;
@@ -118,7 +140,7 @@ a {
   background: var(--accent);
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform .3s ease;
+  transition: transform 0.3s ease;
 }
 
 .nav__links a:hover {
@@ -131,28 +153,61 @@ a {
 }
 
 /* HERO MINI */
-.hero-mini {
-  padding: 80px 24px 60px;
+.hero {
   background: linear-gradient(135deg, #f3f5f7 0%, #e9edf2 100%);
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.hero-mini h1 {
-  font-size: 40px;
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 16px;
-  font-family: 'Raleway', sans-serif;
+.hero .content {
+  padding-top: 144px;
+  padding-bottom: 144px;
 }
 
-.hero-mini p {
-  font-size: 16px;
-  color: var(--muted);
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(62, 193, 213, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
 }
 
-.wrap {
-  max-width: 1120px;
+.hero__in {
+  max-width: var(--max);
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.badge {
+  display: inline-flex;
+  gap: 10px;
+  padding: 6px 40px;
+  border: 2px solid var(--ink);
+  letter-spacing: 4px;
+  font-weight: 600;
+  font-size: 4rem;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.badge:hover {
+  background: var(--ink);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(17, 24, 39, 0.15);
+  cursor: pointer;
 }
 
 /* SECTIONS */
@@ -169,7 +224,7 @@ a {
   font-weight: 700;
   margin-bottom: 32px;
   color: var(--ink);
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   position: relative;
   padding-bottom: 12px;
 }
@@ -262,11 +317,15 @@ a {
 
 .social-link:hover {
   transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .placeholder-img {
-  background: linear-gradient(135deg, rgba(62, 193, 213, 0.08), rgba(62, 193, 213, 0.02));
+  background: linear-gradient(
+    135deg,
+    rgba(62, 193, 213, 0.08),
+    rgba(62, 193, 213, 0.02)
+  );
   border-bottom: 1px dashed var(--line);
 }
 
@@ -391,7 +450,7 @@ a {
 
 @media (prefers-reduced-motion: no-preference) {
   .fade-in-up {
-    animation: fadeInUp .6s ease-out;
+    animation: fadeInUp 0.6s ease-out;
   }
 }
 
@@ -411,7 +470,7 @@ a {
 
 .jhero__title {
   text-align: center;
-  letter-spacing: .28em;
+  letter-spacing: 0.28em;
   font-weight: 800;
   font-size: 28px;
   color: var(--ink);
@@ -420,7 +479,7 @@ a {
 /* Sections */
 .section {
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 60px auto;
   padding: 40px 20px 44px;
 }
 
@@ -442,20 +501,10 @@ a {
 }
 
 .section h2 {
-  margin: 0 0 12px;
-  font-size: 24px;
+  font-size: 4rem;
   font-weight: 700;
-  text-transform: uppercase;
+  text-transform: capitalize;
   color: var(--ink);
-}
-
-/* Update section bar styling with cyan accent */
-.section .bar {
-  height: 3px;
-  background: var(--accent);
-  margin: 8px 0 28px;
-  width: 60px;
-  border-radius: 2px;
 }
 
 /* Founder block */
@@ -473,8 +522,8 @@ a {
   background: #dbe3ec;
   box-shadow: var(--shadow-lg);
   min-height: 240px;
-  border: 1px solid rgba(219, 227, 236, .5);
-  transition: all .3s cubic-bezier(.25, .46, .45, .94);
+  border: 1px solid rgba(219, 227, 236, 0.5);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .founder__photo:hover {
@@ -528,7 +577,7 @@ a {
   color: #fff;
   font-weight: 600;
   font-size: 13px;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
   box-shadow: var(--shadow-md);
 }
 
@@ -557,7 +606,7 @@ a {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: all .3s cubic-bezier(.25, .46, .45, .94);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .card:hover {
@@ -574,8 +623,8 @@ a {
   flex: 0 0 140px;
   background: #cfd5dd;
   box-shadow: var(--shadow-md);
-  transition: all .3s ease;
-  border: 3px solid rgba(255, 255, 255, .8);
+  transition: all 0.3s ease;
+  border: 3px solid rgba(255, 255, 255, 0.8);
 }
 
 .card:hover .avatar {
@@ -620,7 +669,7 @@ a {
 .link a {
   color: var(--primary);
   font-weight: 600;
-  transition: color .3s ease;
+  transition: color 0.3s ease;
   position: relative;
 }
 
@@ -634,7 +683,7 @@ a {
   background: var(--accent);
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform .3s ease;
+  transition: transform 0.3s ease;
 }
 
 .link a:hover {
@@ -664,7 +713,7 @@ a {
 .crumbs a {
   color: #56637a;
   text-decoration: none;
-  transition: color .3s ease;
+  transition: color 0.3s ease;
 }
 
 .crumbs a:hover {
@@ -682,7 +731,7 @@ a {
 .fine-links a {
   color: #56637a;
   text-decoration: none;
-  transition: color .3s ease;
+  transition: color 0.3s ease;
 }
 
 .fine-links a:hover {
@@ -709,7 +758,7 @@ a {
 }
 
 .card-hover {
-  transition: all .3s cubic-bezier(.25, .46, .45, .94);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* Responsive */
@@ -728,7 +777,7 @@ a {
 @media (max-width: 600px) {
   .jhero__title {
     font-size: 24px;
-    letter-spacing: .2em;
+    letter-spacing: 0.2em;
   }
   .card {
     width: 200px;
@@ -781,8 +830,12 @@ a {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .bio-modal__content {
@@ -914,7 +967,7 @@ a {
 }
 
 .bio-tabs__btn.active::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;

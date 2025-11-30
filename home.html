@@ -1,203 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>URA Research Group | Home</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="home.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>URA Research Group | Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="home.css" />
 
-  <!-- NAV -->
-  <header class="nav">
-    <div class="nav__inner">
-      <div class="nav__brand">
-        <img src="assets/URA_logo_1024.png" alt="URA logo" />
-        <span>URA Research Group</span>
+    <!-- FONT - STACK SANS TEXT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Stack+Sans+Text:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- NAV -->
+    <header class="nav">
+      <div class="content">
+        <div class="nav__inner">
+          <div class="nav__brand">
+            <img src="assets/URA_logo_1024.png" alt="URA logo" />
+            <span>URA Research Group</span>
+          </div>
+          <nav class="nav__links" aria-label="Primary">
+            <a href="home.html">Home</a>
+            <a href="home.html#about">About</a>
+            <a href="home.html#blogs">Blogs</a>
+            <a href="people.html">People</a>
+            <a href="home.html#contact">Contact</a>
+          </nav>
+        </div>
       </div>
-      <nav class="nav__links" aria-label="Primary">
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="content">
+        <div class="hero__in">
+          <div class="badge fade-in-element">URA RESEARCH GROUP</div>
+          <h1 class="title-sub fade-in-element">
+            Understand and Reasoning with AI
+          </h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="sec fade-in-element">
+      <div class="content">
+        <div class="head">
+          <h2 class="h2">About us</h2>
+        </div>
+        <div class="bar"></div>
+        <div class="about">
+          <p>
+            Understanding and Reasoning with AI (URA) is a research group at the
+            Faculty of Computer Science and Engineering, Ho Chi Minh City
+            University of Technology (HCMUT), VNU-HCM. The group was founded in
+            2009 by Prof. Quan Thanh Tho and was officially named URA in 2021 to
+            reflect its long-term vision and research direction.
+          </p>
+          <p>
+            URA focuses on explainable AI, logical reasoning, and multi-step
+            problem solving. Members work across NLP, Computer Vision, Speech
+            Processing, Time Series, Vietnamese LLMs, Agentic AI, Reasoning with
+            LLMs, and XR/VR/AR, bridging fundamental research and real
+            applications.
+          </p>
+          <p>
+            We collaborate with national and international partners to transfer
+            technology and deploy impactful AI solutions in education,
+            healthcare, legal services, finance, and more.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOGS -->
+    <section id="blogs" class="sec sec--gray fade-in-element">
+      <div class="content">
+        <div class="head head-wide">
+          <div>
+            <h2 class="h2">Latest Blogs</h2>
+          </div>
+          <a class="btn btn--primary" href="#">View all blogs</a>
+        </div>
+        <div class="bar"></div>
+
+        <!-- Blog carousel with 2 visible cards and 4 total blogs -->
+        <div class="blogs-container">
+          <button
+            class="carousel-btn carousel-btn--prev"
+            id="prevBtn"
+            aria-label="Previous blogs"
+          >
+            <span>‹</span>
+          </button>
+
+          <div class="blogs-carousel">
+            <div class="blogs-track" id="blogsTrack">
+              <article class="blog">
+                <div class="date">31.10.2025</div>
+                <h3 class="tt">From Tears at Summer School to an A* Paper</h3>
+                <div class="by">by Nguyen Song Thien Long</div>
+                <div class="bar"></div>
+                <div class="blog-content">
+                  <p>
+                    Today marks a milestone we once only dreamed of. Our paper
+                    has been accepted to The 16th Symposium on Educational
+                    Advances in Artificial Intelligence (EAAI-2026), co-located
+                    with the AAAI Conference on Artificial
+                    Intelligence (AAAI-2026) — one of the world’s most
+                    prestigious conferences in AI.
+                  </p>
+                  <p>
+                    EAAI is recognized as one of the largest and most respected
+                    symposia on AI and Education, providing a venue where
+                    educators and researchers come together to discuss how
+                    to teach AI more effectively, and how AI can enhance
+                    learning across all levels — from K-12 to postgraduate
+                    training. It celebrates innovative educational approaches
+                    that integrate AI and its many subfields — robotics, machine
+                    learning, natural language processing, computer vision —
+                    while emphasizing creativity, pedagogy, and the human side
+                    of technology...
+                  </p>
+                </div>
+                <a href="#" class="read-more">Read more →</a>
+              </article>
+
+              <article class="blog">
+                <div class="date">31.10.2025</div>
+                <h3 class="tt">From Tears at Summer School to an A* Paper</h3>
+                <div class="by">by Nguyen Song Thien Long</div>
+                <div class="bar"></div>
+                <div class="blog-content">
+                  <p>
+                    Today marks a milestone we once only dreamed of. Our paper
+                    has been accepted to The 16th Symposium on Educational
+                    Advances in Artificial Intelligence (EAAI-2026), co-located
+                    with the AAAI Conference on Artificial
+                    Intelligence (AAAI-2026) — one of the world’s most
+                    prestigious conferences in AI.
+                  </p>
+                  <p>
+                    EAAI is recognized as one of the largest and most respected
+                    symposia on AI and Education, providing a venue where
+                    educators and researchers come together to discuss how
+                    to teach AI more effectively, and how AI can enhance
+                    learning across all levels — from K-12 to postgraduate
+                    training. It celebrates innovative educational approaches
+                    that integrate AI and its many subfields — robotics, machine
+                    learning, natural language processing, computer vision —
+                    while emphasizing creativity, pedagogy, and the human side
+                    of technology...
+                  </p>
+                </div>
+                <a href="#" class="read-more">Read more →</a>
+              </article>
+
+              <article class="blog">
+                <div class="date">31.10.2025</div>
+                <h3 class="tt">From Tears at Summer School to an A* Paper</h3>
+                <div class="by">by Nguyen Song Thien Long</div>
+                <div class="bar"></div>
+                <div class="blog-content">
+                  <p>
+                    Today marks a milestone we once only dreamed of. Our paper
+                    has been accepted to The 16th Symposium on Educational
+                    Advances in Artificial Intelligence (EAAI-2026), co-located
+                    with the AAAI Conference on Artificial
+                    Intelligence (AAAI-2026) — one of the world’s most
+                    prestigious conferences in AI.
+                  </p>
+                  <p>
+                    EAAI is recognized as one of the largest and most respected
+                    symposia on AI and Education, providing a venue where
+                    educators and researchers come together to discuss how
+                    to teach AI more effectively, and how AI can enhance
+                    learning across all levels — from K-12 to postgraduate
+                    training. It celebrates innovative educational approaches
+                    that integrate AI and its many subfields — robotics, machine
+                    learning, natural language processing, computer vision —
+                    while emphasizing creativity, pedagogy, and the human side
+                    of technology...
+                  </p>
+                </div>
+                <a href="#" class="read-more">Read more →</a>
+              </article>
+
+              <article class="blog">
+                <div class="date">31.10.2025</div>
+                <h3 class="tt">From Tears at Summer School to an A* Paper</h3>
+                <div class="by">by Nguyen Song Thien Long</div>
+                <div class="bar"></div>
+                <div class="blog-content">
+                  <p>
+                    Today marks a milestone we once only dreamed of. Our paper
+                    has been accepted to The 16th Symposium on Educational
+                    Advances in Artificial Intelligence (EAAI-2026), co-located
+                    with the AAAI Conference on Artificial
+                    Intelligence (AAAI-2026) — one of the world’s most
+                    prestigious conferences in AI.
+                  </p>
+                  <p>
+                    EAAI is recognized as one of the largest and most respected
+                    symposia on AI and Education, providing a venue where
+                    educators and researchers come together to discuss how
+                    to teach AI more effectively, and how AI can enhance
+                    learning across all levels — from K-12 to postgraduate
+                    training. It celebrates innovative educational approaches
+                    that integrate AI and its many subfields — robotics, machine
+                    learning, natural language processing, computer vision —
+                    while emphasizing creativity, pedagogy, and the human side
+                    of technology...
+                  </p>
+                </div>
+                <a href="#" class="read-more">Read more →</a>
+              </article>
+            </div>
+          </div>
+
+          <button
+            class="carousel-btn carousel-btn--next"
+            id="nextBtn"
+            aria-label="Next blogs"
+          >
+            <span>›</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADER -->
+    <section id="people" class="sec fade-in-element">
+      <div class="content">
+        <div class="head head-wide">
+          <div>
+            <h2 class="h2">Principle Investigator</h2>
+          </div>
+          <a class="btn btn--primary" href="people.html">View all Members</a>
+        </div>
+        <div class="bar"></div>
+
+        <div class="lead-container">
+          <div class="lead-photo">
+            <img src="assets/Tho.jpg" alt="Assoc. Prof. Quan Thanh Tho" />
+          </div>
+          <div class="lead-content">
+            <div class="lead-rank">Assoc. Prof.</div>
+            <div class="lead-name"><a href="#">Quan Thanh Tho</a></div>
+            <div class="lead-vn">(Quản Thành Thơ)</div>
+            <p class="lead-txt">
+              Dr. Quan Thanh Tho is an Associate Professor in the Faculty of
+              Computer Science and Engineering, Ho Chi Minh City University of
+              Technology (HCMUT), Vietnam. He received his B.Eng. in Information
+              Technology from HCMUT in 1998 and his Ph.D. from Nanyang
+              Technological University in 2006.
+            </p>
+            <p class="lead-txt">
+              His interests include Artificial Intelligence, Natural Language
+              Processing, intelligent systems, and formal methods. He is the
+              Dean of the Faculty and Head of the URA Research Group.
+            </p>
+            <button class="btn-sm">Read Bio</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="sec sec--gray">
+      <div class="content">
+        <div class="head head-wide">
+          <div>
+            <h2 class="h2">Get in touch</h2>
+          </div>
+        </div>
+        <div class="bar"></div>
+
+        <div class="contact">
+          <div class="contact-info">
+            <div class="ci">
+              <div class="icon">☎</div>
+              <div>
+                <div class="lab">Call</div>
+                <div>028 3863 8912</div>
+                <div class="sub-text">Monday – Friday</div>
+              </div>
+            </div>
+            <div class="ci">
+              <div class="icon">✉</div>
+              <div>
+                <div class="lab">Email</div>
+                <div>
+                  <a href="mailto:qttho@hcmut.edu.vn">qttho@hcmut.edu.vn</a>
+                </div>
+              </div>
+            </div>
+            <div class="ci">
+              <div class="icon">📍</div>
+              <div>
+                <div class="lab">Location</div>
+                <div class="sub-text">
+                  Ly Thuong Kiet Campus: 268 Ly Thuong Kiet, Ward 14, District
+                  10, Ho Chi Minh City
+                </div>
+              </div>
+            </div>
+          </div>
+          <form class="form">
+            <input class="inp" type="text" placeholder="Name" required />
+            <input
+              class="inp"
+              type="email"
+              placeholder="Email address"
+              required
+            />
+            <textarea class="ta" placeholder="Message" required></textarea>
+            <button class="btn-send" type="submit">SEND NOW</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <!-- <div class="foot">
+      <div class="crumbs" aria-label="Breadcrumb">
         <a href="home.html">Home</a>
-        <a href="home.html#about">About</a>
-        <a href="home.html#blogs">Blogs</a>
-        <a href="home.html#people">People</a>
+        <span>›</span>
+        <a href="people.html">People</a>
+      </div>
+      <div class="fine-links">
+        <a href="paper.html">Paper</a>
+        <span>|</span>
         <a href="home.html#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero__in">
-      <div class="badge fade-in-element">URA RESEARCH GROUP</div>
-      <h1 class="title-sub fade-in-element">Understand and Reasoning with AI</h1>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="sec fade-in-element">
-    <div class="wrap">
-      <div class="head">
-        <h2 class="h2">ABOUT US</h2>
-      </div>
-      <div class="bar"></div>
-      <div class="about">
-        <p>Understanding and Reasoning with AI (URA) is a research group at the Faculty of Computer Science and Engineering, Ho Chi Minh City University of Technology (HCMUT), VNU-HCM. The group was founded in 2009 by Prof. Quan Thanh Tho and was officially named URA in 2021 to reflect its long-term vision and research direction.</p>
-        <p>URA focuses on explainable AI, logical reasoning, and multi-step problem solving. Members work across NLP, Computer Vision, Speech Processing, Time Series, Vietnamese LLMs, Agentic AI, Reasoning with LLMs, and XR/VR/AR, bridging fundamental research and real applications.</p>
-        <p>We collaborate with national and international partners to transfer technology and deploy impactful AI solutions in education, healthcare, legal services, finance, and more.</p>
+        <span>|</span>
+        <a href="home.html">Login</a>
       </div>
     </div>
-  </section>
 
-  <!-- BLOGS -->
-  <section id="blogs" class="sec sec--gray fade-in-element">
-    <div class="wrap">
-      <div class="head head-wide">
-        <div>
-          <h2 class="h2">LATEST BLOGS</h2>
-        </div>
-        <a class="btn btn--primary" href="#">View all blogs</a>
-      </div>
+    <footer class="legal">
+      <img class="logo" src="assets/URA_logo_1024.png" alt="URA emblem" />
+      <div>© URA @ HCMUT. All rights reserved.</div>
+    </footer> -->
 
-      <!-- Blog carousel with 2 visible cards and 4 total blogs -->
-      <div class="blogs-container">
-        <button class="carousel-btn carousel-btn--prev" id="prevBtn" aria-label="Previous blogs">
-          <span>‹</span>
-        </button>
-        
-        <div class="blogs-carousel">
-          <div class="blogs-track" id="blogsTrack">
-            <article class="blog">
-              <div class="blog-badge">Featured</div>
-              <div class="date">31.10.2025</div>
-              <h3 class="tt">From Tears at Summer School to an A* Paper</h3>
-              <div class="by">by Nguyen Song Thien Long</div>
-              <p>Today marks a milestone we once only dreamed of. Our paper has been accepted to The 16th Symposium on Educational Advances in Artificial Intelligence (EAAI-2026), co-located with the AAAI Conference on Artificial Intelligence (AAAI-2026)...</p>
-              <a href="#" class="read-more">Read more →</a>
-            </article>
-            
-            <article class="blog">
-              <div class="blog-badge">Featured</div>
-              <div class="date">31.10.2025</div>
-              <h3 class="tt">From Tears at Summer School to an A* Paper</h3>
-              <div class="by">by Nguyen Song Thien Long</div>
-              <p>Today marks a milestone we once only dreamed of. Our paper has been accepted to The 16th Symposium on Educational Advances in Artificial Intelligence (EAAI-2026), co-located with the AAAI Conference on Artificial Intelligence (AAAI-2026)...</p>
-              <a href="#" class="read-more">Read more →</a>
-            </article>
-            
-            <article class="blog">
-              <div class="blog-badge">Featured</div>
-              <div class="date">31.10.2025</div>
-              <h3 class="tt">From Tears at Summer School to an A* Paper</h3>
-              <div class="by">by Nguyen Song Thien Long</div>
-              <p>Today marks a milestone we once only dreamed of. Our paper has been accepted to The 16th Symposium on Educational Advances in Artificial Intelligence (EAAI-2026), co-located with the AAAI Conference on Artificial Intelligence (AAAI-2026)...</p>
-              <a href="#" class="read-more">Read more →</a>
-            </article>
-            
-            <article class="blog">
-              <div class="blog-badge">Featured</div>
-              <div class="date">31.10.2025</div>
-              <h3 class="tt">From Tears at Summer School to an A* Paper</h3>
-              <div class="by">by Nguyen Song Thien Long</div>
-              <p>Today marks a milestone we once only dreamed of. Our paper has been accepted to The 16th Symposium on Educational Advances in Artificial Intelligence (EAAI-2026), co-located with the AAAI Conference on Artificial Intelligence (AAAI-2026)...</p>
-              <a href="#" class="read-more">Read more →</a>
-            </article>
+    <footer class="footer">
+      <div class="content footer-container">
+        <div class="footer-content">
+          <div class="footer-breadcrumb">
+            <a href="#">Home</a>
+            <span class="chevron">›</span>
+            <a href="#">People</a>
+          </div>
+
+          <div class="bar"></div>
+
+          <div class="footer-info">
+            <div class="info-links">
+              <a href="#">Paper</a>
+              <span class="separator">|</span>
+              <a href="#">Contact</a>
+              <span class="separator">|</span>
+              <a href="#">Login</a>
+            </div>
+            <div class="copyright">© URA @ HCMUT. All rights reserved.</div>
           </div>
         </div>
-
-        <button class="carousel-btn carousel-btn--next" id="nextBtn" aria-label="Next blogs">
-          <span>›</span>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- LEADER -->
-  <section id="people" class="sec fade-in-element">
-    <div class="wrap">
-      <div class="head head-wide">
-        <div>
-          <h2 class="h2">Principal Investigator (PI)</h2>
-        </div>
-        <a class="btn btn--primary" href="people.html">Meet The Team</a>
-      </div>
-
-      <div class="lead-grid">
-        <div class="lead-photo">
-          <img src="assets/Tho.jpg" alt="Assoc. Prof. Quan Thanh Tho">
-        </div>
-        <div class="lead-content">
-          <div class="lead-rank">Assoc. Prof.</div>
-          <div class="lead-name">Quan Thanh Tho</div>
-          <div class="lead-vn">(Quản Thành Thơ)</div>
-          <p class="lead-txt">Dr. Quan Thanh Tho is an Associate Professor in the Faculty of Computer Science and Engineering, Ho Chi Minh City University of Technology (HCMUT), Vietnam. He received his B.Eng. in Information Technology from HCMUT in 1998 and his Ph.D. from Nanyang Technological University in 2006.</p>
-          <p class="lead-txt">His interests include Artificial Intelligence, Natural Language Processing, intelligent systems, and formal methods. He is the Dean of the Faculty and Head of the URA Research Group.</p>
-
+        <div class="footer-logo">
+          <img src="assets/URA_logo_1024.png" alt="" />
         </div>
       </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- CONTACT -->
-  <section id="contact" class="sec fade-in-element">
-    <h2 class="contact-title">Contact Us</h2>
-    <div class="contact">
-      <div class="contact-info">
-        <div class="ci">
-          <div class="icon">☎</div>
-          <div>
-            <div class="lab">Call</div>
-            <div>028 3863 8912</div>
-            <div class="sub-text">Monday – Friday</div>
-          </div>
-        </div>
-        <div class="ci">
-          <div class="icon">✉</div>
-          <div>
-            <div class="lab">Email</div>
-            <div><a href="mailto:qttho@hcmut.edu.vn">qttho@hcmut.edu.vn</a></div>
-          </div>
-        </div>
-        <div class="ci">
-          <div class="icon">📍</div>
-          <div>
-            <div class="lab">Location</div>
-            <div class="sub-text">Ly Thuong Kiet Campus: 268 Ly Thuong Kiet, Ward 14, District 10, Ho Chi Minh City</div>
-          </div>
-        </div>
-      </div>
-      <form class="form">
-        <input class="inp" type="text" placeholder="Name" required>
-        <input class="inp" type="email" placeholder="Email address" required>
-        <textarea class="ta" placeholder="Message" required></textarea>
-        <button class="btn-send" type="submit">SEND NOW</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <div class="foot">
-    <div class="crumbs" aria-label="Breadcrumb">
-      <a href="home.html">Home</a>
-      <span>›</span>
-      <a href="people.html">People</a>
-    </div>
-    <div class="fine-links">
-      <a href="paper.html">Paper</a>
-      <span>|</span>
-      <a href="home.html#contact">Contact</a>
-      <span>|</span>
-      <a href="home.html">Login</a>
-    </div>
-  </div>
-
-  <footer class="legal">
-    <img class="logo" src="assets/URA_logo_1024.png" alt="URA emblem" />
-    <div>© URA @ HCMUT. All rights reserved.</div>
-  </footer>
-
-  <script src="animations.js"></script>
-  <!-- Added carousel script -->
-  <script src="carousel.js"></script>
-</body>
+    <script src="animations.js"></script>
+    <!-- Added carousel script -->
+    <script src="carousel.js"></script>
+  </body>
 </html>
