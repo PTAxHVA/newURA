@@ -195,14 +195,37 @@ a {
   align-items: center;
 }
 
+/* HERO BADGE – nâng cấp giống style mới */
 .badge {
   display: inline-flex;
   gap: 8px;
-  padding: 8px 28px;
+  padding: 10px 32px;
   border: 2px solid var(--ink);
   letter-spacing: 2px;
   font-weight: 700;
   font-size: 1.6rem;
+  background: #ffffff;
+  color: var(--ink);
+  border-radius: 8px;
+
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+  transform: translateY(0) scale(1);
+  transition:
+    transform 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.badge:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+
+  transform: translateY(-14px) scale(1.06);
+  box-shadow: 0 26px 55px rgba(15, 23, 42, 0.28);
+  cursor: pointer;
 }
 
 .hero__copy h1 {
