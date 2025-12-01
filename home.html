@@ -42,7 +42,7 @@
     <section class="hero">
       <div class="content">
         <div class="hero__in">
-          <div class="badge fade-in-element">URA RESEARCH GROUP</div>
+          <div class="badge">URA RESEARCH GROUP</div>
           <h1 class="title-sub fade-in-element">
             Understand and Reasoning with AI
           </h1>
@@ -242,16 +242,16 @@
       <div class="content">
         <div class="head head-wide">
           <div>
-            <h2 class="h2">Principle Investigator</h2>
+            <h2 class="h2">Principal Investigator</h2>
           </div>
           <a class="btn btn--primary" href="people.html">View all Members</a>
         </div>
         <div class="bar"></div>
 
         <div class="lead-container">
-          <div class="lead-photo">
+          <a class="lead-photo" href="home_page.html">
             <img src="assets/Tho.jpg" alt="Assoc. Prof. Quan Thanh Tho" />
-          </div>
+          </a>
           <div class="lead-content">
             <div class="lead-rank">Assoc. Prof.</div>
             <div class="lead-name"><a href="#">Quan Thanh Tho</a></div>
@@ -268,7 +268,6 @@
               Processing, intelligent systems, and formal methods. He is the
               Dean of the Faculty and Head of the URA Research Group.
             </p>
-            <button class="btn-sm">Read Bio</button>
           </div>
         </div>
       </div>
@@ -377,6 +376,43 @@
         </div>
       </div>
     </footer>
+    <script>
+  // Scroll spy for nav
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav__links a");
+
+  function onScroll() {
+    let currentId = "";
+
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      // Adjust offset (80px) depending on your sticky header height
+      if (rect.top <= 80 && rect.bottom > 80) {
+        currentId = section.id;
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+
+      const href = link.getAttribute("href");
+
+      // Home section (top of page)
+      if (!currentId && href === "home.html") {
+        link.classList.add("active");
+      }
+
+      // In-page sections: #about, #blogs, #contact
+      if (currentId && href.endsWith("#" + currentId)) {
+        link.classList.add("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", onScroll);
+  window.addEventListener("load", onScroll);
+</script>
+
 
     <script src="animations.js"></script>
     <!-- Added carousel script -->
