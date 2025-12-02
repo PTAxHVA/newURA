@@ -1,5 +1,5 @@
 /* member.css – Combined About / Publications / Team page
-   Consistent with about.css / paper.css / support_member.css
+   Now matches People page nav styling
 */
 
 :root {
@@ -9,7 +9,8 @@
   --muted: #606b85;
   --line: #e5e7eb;
   --primary: #0a66ff;
-  --accent: #3ec1d5;
+  /* match people.css accent */
+  --accent: #0064e0;
   --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
   --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
   --shadow-lg: 0 10px 30px rgba(15, 23, 42, 0.1);
@@ -61,7 +62,7 @@ a {
 }
 
 /* =========================
-   Top navigation
+   Top navigation – MATCH PEOPLE PAGE
    ========================= */
 
 .nav {
@@ -71,12 +72,13 @@ a {
   top: 0;
   z-index: 100;
   box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
 }
 
 .nav__inner {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 12px 20px;
+  padding: 7px 0; /* same vertical spacing as people.css */
   display: flex;
   align-items: center;
   gap: 18px;
@@ -86,9 +88,10 @@ a {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-weight: 700;
-  transition: opacity 0.3s ease;
+  font-weight: 800;
   letter-spacing: 0.5px;
+  transition: opacity 0.3s ease;
+  font-size: 28px; /* ≈ 2.8rem on people.css */
 }
 
 .nav__brand:hover {
@@ -96,26 +99,27 @@ a {
 }
 
 .nav__brand img {
-  width: 32px;
-  height: 32px;
+  width: 69px; /* same logo size as people.css */
+  height: auto;
   border-radius: 6px;
 }
 
 .nav__links {
   margin-left: auto;
   display: flex;
-  gap: 28px;
+  gap: 70px; /* same spacing between links as people.css */
 }
 
 .nav__links a {
   color: #334155;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
-  font-size: 14px;
+  font-size: 18px; /* ≈ 1.8rem on people.css */
   position: relative;
+  transition: color 0.3s ease;
 }
 
+/* underline animation */
 .nav__links a::after {
   content: "";
   position: absolute;
@@ -134,6 +138,16 @@ a {
 }
 
 .nav__links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Active nav item (current page) – same behavior as people.css */
+.nav__links a[aria-current="page"] {
+  color: var(--accent);
+}
+
+.nav__links a[aria-current="page"]::after {
   transform: scaleX(1);
   transform-origin: left;
 }
@@ -434,12 +448,16 @@ a {
   .member-content {
     padding: 20px 18px 24px;
   }
+
+  .nav__links {
+    gap: 18px;
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 600px) {
   .nav__links {
     gap: 12px;
-    font-size: 12px;
   }
 
   .member-avatar {
