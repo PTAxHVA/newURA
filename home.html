@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Stack+Sans+Text:wght@200..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -31,7 +31,7 @@
             <a href="home.html">Home</a>
             <a href="home.html#about">About</a>
             <a href="home.html#blogs">Blogs</a>
-            <a href="people.html">People</a>
+            <a href="home.html#people">People</a>
             <a href="home.html#contact">Contact</a>
           </nav>
         </div>
@@ -377,42 +377,41 @@
       </div>
     </footer>
     <script>
-  // Scroll spy for nav
-  const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll(".nav__links a");
+      // Scroll spy for nav
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav__links a");
 
-  function onScroll() {
-    let currentId = "";
+      function onScroll() {
+        let currentId = "";
 
-    sections.forEach((section) => {
-      const rect = section.getBoundingClientRect();
-      // Adjust offset (80px) depending on your sticky header height
-      if (rect.top <= 80 && rect.bottom > 80) {
-        currentId = section.id;
+        sections.forEach((section) => {
+          const rect = section.getBoundingClientRect();
+          // Adjust offset (80px) depending on your sticky header height
+          if (rect.top <= 80 && rect.bottom > 80) {
+            currentId = section.id;
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+
+          const href = link.getAttribute("href");
+
+          // Home section (top of page)
+          if (!currentId && href === "home.html") {
+            link.classList.add("active");
+          }
+
+          // In-page sections: #about, #blogs, #contact
+          if (currentId && href.endsWith("#" + currentId)) {
+            link.classList.add("active");
+          }
+        });
       }
-    });
 
-    navLinks.forEach((link) => {
-      link.classList.remove("active");
-
-      const href = link.getAttribute("href");
-
-      // Home section (top of page)
-      if (!currentId && href === "home.html") {
-        link.classList.add("active");
-      }
-
-      // In-page sections: #about, #blogs, #contact
-      if (currentId && href.endsWith("#" + currentId)) {
-        link.classList.add("active");
-      }
-    });
-  }
-
-  window.addEventListener("scroll", onScroll);
-  window.addEventListener("load", onScroll);
-</script>
-
+      window.addEventListener("scroll", onScroll);
+      window.addEventListener("load", onScroll);
+    </script>
 
     <script src="animations.js"></script>
     <!-- Added carousel script -->
