@@ -210,12 +210,9 @@ a {
 
   box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
   transform: translateY(0) scale(1);
-  transition:
-    transform 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+  transition: transform 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94),
     box-shadow 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    background-color 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease;
+    background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .badge:hover {
@@ -327,7 +324,7 @@ a {
   border-radius: var(--r-md);
   overflow: hidden;
   background: linear-gradient(135deg, #dbe3ec, #eef2f7);
-  height: 320px;
+  height: 450px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -337,6 +334,7 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
 }
 
 .hero__stats {
@@ -659,7 +657,7 @@ a {
 
 .pub-item {
   margin: 6px 0;
-  padding: 0;                   /* không cần padding-left nữa */
+  padding: 0; /* không cần padding-left nữa */
   background: transparent;
   border: none;
   box-shadow: none;
@@ -671,7 +669,7 @@ a {
 .pub-accordion {
   display: grid;
   gap: 16px;
-  counter-reset: pub-counter;      
+  counter-reset: pub-counter;
 }
 
 /* Thay dấu chấm bằng [1], [2], ... */
@@ -681,9 +679,8 @@ a {
   font-weight: 600;
   color: var(--accent);
   display: inline-block;
-  min-width: 32px;              /* canh thẳng cột số */
+  min-width: 32px; /* canh thẳng cột số */
 }
-
 
 /* Highlight PI name */
 .pub-me {
@@ -737,7 +734,6 @@ a {
 .pub-collapsed .pub-toggle-more {
   display: none;
 }
-
 
 /* CTA */
 .section--cta {
@@ -850,7 +846,6 @@ a {
   border-radius: 10px;
   object-fit: contain;
 }
-
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {

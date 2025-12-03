@@ -284,72 +284,26 @@
         <div class="bar"></div>
 
         <div class="contact">
-          <div class="contact-info">
-            <div class="ci">
-              <div class="icon">☎</div>
-              <div>
-                <div class="lab">Call</div>
-                <div>028 3863 8912</div>
-                <div class="sub-text">Monday – Friday</div>
-              </div>
-            </div>
-            <div class="ci">
-              <div class="icon">✉</div>
-              <div>
-                <div class="lab">Email</div>
-                <div>
-                  <a href="mailto:qttho@hcmut.edu.vn">qttho@hcmut.edu.vn</a>
-                </div>
-              </div>
-            </div>
-            <div class="ci">
-              <div class="icon">📍</div>
-              <div>
-                <div class="lab">Location</div>
-                <div class="sub-text">
-                  Ly Thuong Kiet Campus: 268 Ly Thuong Kiet, Ward 14, District
-                  10, Ho Chi Minh City
-                </div>
-              </div>
-            </div>
-          </div>
           <form class="form">
-            <input class="inp" type="text" placeholder="Name" required />
-            <input
-              class="inp"
-              type="email"
-              placeholder="Email address"
-              required
-            />
-            <textarea class="ta" placeholder="Message" required></textarea>
-            <button class="btn-send" type="submit">SEND NOW</button>
+            <div class="col">
+              <input class="inp" type="text" placeholder="Name" required />
+              <input
+                class="inp"
+                type="email"
+                placeholder="Email address"
+                required
+              />
+            </div>
+            <div class="col">
+              <textarea class="ta" placeholder="Message" required></textarea>
+              <button class="btn-send" type="submit">SEND NOW</button>
+            </div>
           </form>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
-    <!-- <div class="foot">
-      <div class="crumbs" aria-label="Breadcrumb">
-        <a href="home.html">Home</a>
-        <span>›</span>
-        <a href="people.html">People</a>
-      </div>
-      <div class="fine-links">
-        <a href="paper.html">Paper</a>
-        <span>|</span>
-        <a href="home.html#contact">Contact</a>
-        <span>|</span>
-        <a href="home.html">Login</a>
-      </div>
-    </div>
-
-    <footer class="legal">
-      <img class="logo" src="assets/URA_logo_1024.png" alt="URA emblem" />
-      <div>© URA @ HCMUT. All rights reserved.</div>
-    </footer> -->
-
-    <footer class="footer">
+    <!-- <footer class="footer">
       <div class="content footer-container">
         <div class="footer-content">
           <div class="footer-breadcrumb">
@@ -375,7 +329,42 @@
           <img src="assets/URA_logo_1024.png" alt="" />
         </div>
       </div>
+    </footer> -->
+
+    <footer class="ura-custom-footer">
+      <div class="footer-content content">
+        <div class="footer-group group-left">
+          <span class="footer-label">Location</span>
+          <div class="footer-divider"></div>
+          <a
+            class="footer-text address-link"
+            href="https://maps.app.goo.gl/VXZieKFvhT66C95y6"
+          >
+            Ly Thuong Kiet Campus: 268 Ly Thuong Kiet, Ward 14, District 10, Ho
+            Chi Minh City
+          </a>
+        </div>
+
+        <div class="footer-group group-right">
+          <div class="footer-top-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+          </div>
+          <div class="footer-divider"></div>
+          <p class="footer-text">© URA @ HCMUT. All rights reserved.</p>
+        </div>
+
+        <div class="footer-logo-container">
+          <img
+            src="assets/URA_logo_1024.png"
+            alt="URA Logo"
+            class="footer-logo-img"
+          />
+        </div>
+      </div>
     </footer>
+
+    <!------------ JAVASCRIP ------------>
     <script>
       // Scroll spy for nav
       const sections = document.querySelectorAll("section[id]");
