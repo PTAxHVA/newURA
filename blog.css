@@ -10,6 +10,8 @@
   --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.1);
   --radius-lg: 16px;
   --radius-md: 12px;
+  --font-body: "Inter", "Plus Jakarta Sans", sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", sans-serif;
   --max: 1100px;
 }
 
@@ -24,12 +26,23 @@ html {
 }
 
 body {
-  font-family: "Stack Sans Text", "Poppins", sans-serif;
+  font-family: var(--font-body);
   background: var(--bg);
   color: var(--ink);
   line-height: 1.7;
   font-size: 1.8rem;
   overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.nav__brand,
+.badge {
+  font-family: var(--font-display);
 }
 
 a {
@@ -38,8 +51,9 @@ a {
 }
 
 .content {
-  width: min(95%, var(--max));
+  width: min(96%, var(--max));
   margin: 0 auto;
+  padding: 0 16px;
 }
 /* HERO */
 .hero {
@@ -78,7 +92,16 @@ a {
   flex-direction: column;
   gap: 26px;
 }
-
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 /* HERO BADGE – giống home */
 .badge {
   display: inline-flex;
@@ -93,11 +116,10 @@ a {
   color: var(--ink);
   border-radius: 8px;
 
+
   box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
   transform: translateY(0) scale(1);
   transition:
-    transform 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    box-shadow 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94),
     background-color 0.2s ease,
     color 0.2s ease,
     border-color 0.2s ease;
@@ -108,11 +130,15 @@ a {
   color: #fff;
   border-color: var(--accent);
 
-  transform: translateY(-18px) scale(1.06);
-  box-shadow: 0 26px 55px rgba(15, 23, 42, 0.28);
   cursor: pointer;
 }
-
+.title-sub {
+  font-size: 4rem;
+  letter-spacing: 4px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.2;
+}
 /* NAV */
 .nav {
   background: #fff;
@@ -126,10 +152,10 @@ a {
 .nav__inner {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 10px 0;
+  padding: 10px 16px;
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
 }
 
 .nav__brand {
@@ -140,6 +166,7 @@ a {
   letter-spacing: 0.4px;
   font-size: 2.6rem;
   transition: opacity 0.3s ease;
+  color: var(--primary);
 }
 
 .nav__brand img {
@@ -159,12 +186,13 @@ a {
 }
 
 .nav__links a {
-  color: #374151;
+  color: #334155;
   font-weight: 600;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   position: relative;
-  padding-bottom: 4px;
+  padding-bottom: 6px;
   transition: color 0.25s ease;
+  font-family: var(--font-display);
 }
 
 .nav__links a::after {
@@ -185,12 +213,14 @@ a {
 }
 
 .nav__links a:hover::after,
-.nav__links a[aria-current="page"]::after {
+.nav__links a[aria-current="page"]::after,
+.nav__links a.active::after {
   transform: scaleX(1);
   transform-origin: left;
 }
 
-.nav__links a[aria-current="page"] {
+.nav__links a[aria-current="page"],
+.nav__links a.active {
   color: var(--accent);
 }
 
@@ -304,8 +334,8 @@ a {
 /* FOOTER */
 .foot {
   max-width: var(--max);
-  margin: 10px auto 18px;
-  padding: 0 12px;
+  margin: 32px auto 16px;
+  padding: 0 16px;
   color: #6b7280;
 }
 
@@ -318,6 +348,7 @@ a {
 
 .crumbs a {
   color: #56637a;
+  text-decoration: none;
   transition: color 0.25s ease;
 }
 
@@ -330,7 +361,8 @@ a {
   display: flex;
   gap: 14px;
   margin-top: 8px;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  flex-wrap: wrap;
 }
 
 .fine-links a {
@@ -344,7 +376,7 @@ a {
 
 .legal {
   border-top: 1px solid var(--line);
-  padding: 14px 12px 24px;
+  padding: 16px 16px 24px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -362,6 +394,12 @@ a {
   object-fit: contain;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .fade-in-element {
+    animation: fadeInUp 0.7s ease-out forwards;
+    opacity: 0;
+  }
+}
 /* RESPONSIVE */
 @media (max-width: 768px) {
   body {

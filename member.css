@@ -1,21 +1,29 @@
 /* member.css – Combined About / Publications / Team page
-   Now matches People page nav styling
+   Unified with home.css: navbar, footer, typography
 */
 
 :root {
-  --bg: #f3f5f7;
-  --card: #ffffff;
-  --ink: #0e1726;
-  --muted: #606b85;
-  --line: #e5e7eb;
   --primary: #0a66ff;
-  /* match people.css accent */
+  --primary-dark: #0656e6;
   --accent: #0064e0;
+  --accent-light: #0064e0;
+  --ink: #111827;
+  --ink-light: #1f2937;
+  --muted: #6b7280;
+  --muted-light: #9ca3af;
+  --line: #e5e7eb;
+  --bg: #f3f5f7;
+  --soft: #f8fafc;
+  --card: #ffffff;
+  --max: 1100px;
   --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
   --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
   --shadow-lg: 0 10px 30px rgba(15, 23, 42, 0.1);
   --shadow-xl: 0 16px 40px rgba(15, 23, 42, 0.15);
   --r-lg: 14px;
+  --r-md: 10px;
+  --font-body: "Inter", "Plus Jakarta Sans", sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", sans-serif;
 }
 
 * {
@@ -29,13 +37,29 @@ body {
   height: 100%;
 }
 
+html {
+  font-size: 62.5%;
+}
+
+/* Typography unified with home.css */
 body {
-  margin: 0;
-  font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif;
+  font-family: var(--font-body);
   color: var(--ink);
-  background: var(--bg);
+  background: #fff;
   line-height: 1.6;
+  overflow-x: hidden;
+  font-size: 1.8rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.nav__brand,
+.badge {
+  font-family: var(--font-display);
 }
 
 a {
@@ -43,6 +67,7 @@ a {
   text-decoration: none;
 }
 
+/* Animation util */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -62,7 +87,7 @@ a {
 }
 
 /* =========================
-   Top navigation – MATCH PEOPLE PAGE
+   NAVBAR – EXACTLY LIKE home.css
    ========================= */
 
 .nav {
@@ -76,47 +101,48 @@ a {
 }
 
 .nav__inner {
-  max-width: 1100px;
+  max-width: var(--max);
   margin: 0 auto;
-  padding: 7px 0; /* same vertical spacing as people.css */
+  padding: 10px 16px;
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
 }
 
 .nav__brand {
   display: flex;
   align-items: center;
-  gap: 10px;
   font-weight: 800;
   letter-spacing: 0.5px;
   transition: opacity 0.3s ease;
-  font-size: 28px; /* ≈ 2.8rem on people.css */
+  font-size: 2.8rem;
+  color: var(--primary);
 }
 
 .nav__brand:hover {
   opacity: 0.8;
+  cursor: pointer;
 }
 
 .nav__brand img {
-  width: 69px; /* same logo size as people.css */
-  height: auto;
-  border-radius: 6px;
+  width: 69px;
 }
 
 .nav__links {
   margin-left: auto;
   display: flex;
-  gap: 70px; /* same spacing between links as people.css */
+  gap: 32px;
 }
 
 .nav__links a {
   color: #334155;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 18px; /* ≈ 1.8rem on people.css */
+  font-weight: 600;
+  font-size: 1.7rem;
   position: relative;
-  transition: color 0.3s ease;
+  transition: color 0.25s ease;
+  padding-bottom: 6px;
+  font-family: var(--font-display);
 }
 
 /* underline animation */
@@ -130,7 +156,7 @@ a {
   background: var(--accent);
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform 0.3s ease;
+  transition: transform 0.25s ease;
 }
 
 .nav__links a:hover {
@@ -142,11 +168,13 @@ a {
   transform-origin: left;
 }
 
-/* Active nav item (current page) – same behavior as people.css */
+/* Active nav item (current page) */
+.nav__links a.active,
 .nav__links a[aria-current="page"] {
   color: var(--accent);
 }
 
+.nav__links a.active::after,
 .nav__links a[aria-current="page"]::after {
   transform: scaleX(1);
   transform-origin: left;
@@ -157,9 +185,9 @@ a {
    ========================= */
 
 .member-layout {
-  max-width: 1100px;
+  max-width: var(--max);
   margin: 32px auto 40px;
-  padding: 0 20px 40px;
+  padding: 0 16px 40px;
   display: grid;
   grid-template-columns: 280px minmax(0, 1fr);
   gap: 48px;
@@ -198,13 +226,13 @@ a {
 }
 
 .member-name {
-  font-size: 22px;
+  font-size: 2.2rem;
   font-weight: 700;
   margin-top: 4px;
 }
 
 .member-role {
-  font-size: 12px;
+  font-size: 1.2rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #6b7280;
@@ -226,7 +254,7 @@ a {
 
 .side-nav a {
   display: inline-block;
-  font-size: 13px;
+  font-size: 1.3rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #4b5563;
@@ -266,13 +294,14 @@ a {
 }
 
 .section-title {
-  font-size: 18px;
+  font-size: 1.8rem;
   text-transform: uppercase;
   margin-bottom: 18px;
+  letter-spacing: 0.18em;
 }
 
 .section-body {
-  font-size: 14px;
+  font-size: 1.4rem;
   color: #374151;
 }
 
@@ -310,7 +339,7 @@ a {
   background: transparent;
   border: none;
   box-shadow: none;
-  font-size: 14px;
+  font-size: 1.4rem;
   line-height: 1.7;
   color: #374151;
 }
@@ -354,7 +383,7 @@ a {
 
 .team-list {
   margin-left: 18px;
-  font-size: 14px;
+  font-size: 1.4rem;
   color: #374151;
 }
 
@@ -363,13 +392,13 @@ a {
 }
 
 /* =========================
-   Footer
+   FOOTER – SAME AS home.css
    ========================= */
 
 .foot {
-  max-width: 1100px;
-  margin: 0 auto 20px;
-  padding: 0 20px;
+  max-width: var(--max);
+  margin: 32px auto 16px;
+  padding: 0 16px;
   color: #6b7280;
 }
 
@@ -377,13 +406,13 @@ a {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 14px;
+  font-size: 1.4rem;
 }
 
 .crumbs a {
   color: #56637a;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.25s ease;
 }
 
 .crumbs a:hover {
@@ -393,15 +422,16 @@ a {
 
 .fine-links {
   display: flex;
-  gap: 16px;
-  margin-top: 10px;
-  font-size: 13px;
+  gap: 14px;
+  margin-top: 8px;
+  font-size: 1.4rem;
+  flex-wrap: wrap;
 }
 
 .fine-links a {
   color: #56637a;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.25s ease;
 }
 
 .fine-links a:hover {
@@ -410,15 +440,16 @@ a {
 
 .legal {
   border-top: 1px solid var(--line);
-  padding: 16px 20px;
+  padding: 16px 16px 24px;
   display: flex;
   align-items: center;
   gap: 12px;
   color: #6b7280;
   background: #f9fafb;
-  font-size: 13px;
-  max-width: 1100px;
-  margin: 0 auto 32px;
+  font-size: 1.3rem;
+  max-width: var(--max);
+  margin: 0 auto 24px;
+  width: 100%;
 }
 
 .legal .logo {
@@ -451,7 +482,7 @@ a {
 
   .nav__links {
     gap: 18px;
-    font-size: 13px;
+    font-size: 1.3rem;
   }
 }
 
@@ -466,15 +497,19 @@ a {
   }
 
   .member-name {
-    font-size: 18px;
+    font-size: 1.8rem;
   }
 
   .section-title {
-    font-size: 16px;
+    font-size: 1.6rem;
     letter-spacing: 0.18em;
   }
 
   .pub-item {
-    font-size: 13px;
+    font-size: 1.3rem;
+  }
+
+  .member-layout {
+    padding: 0 12px 32px;
   }
 }
