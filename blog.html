@@ -9,23 +9,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="blog.css" />
+    <link rel="stylesheet" href="Navbar/navbar.css" />
   </head>
-  <body>
-    <header class="nav">
-      <div class="nav__inner">
-        <div class="nav__brand">
-          <img src="assets/URA_logo_1024.png" alt="URA logo" />
-          <span>URA Research Group</span>
-        </div>
-        <nav class="nav__links" aria-label="Primary">
-          <a href="home.html">Home</a>
-          <a href="home.html#about">About</a>
-          <a href="home.html#blogs" aria-current="page">Blogs</a>
-          <a href="home.html#people">People</a>
-          <a href="home.html#contact">Contact</a>
-        </nav>
-      </div>
-    </header>
+  <body data-nav-current="blogs">
+    <div id="navbar-root"></div>
 
 <main>
   <section class="hero">
@@ -177,6 +164,6 @@
       <img class="logo" src="assets/URA_logo_1024.png" alt="URA emblem" />
       <div>Ac URA @ HCMUT. All rights reserved.</div>
     </footer>
+    <script src="Navbar/navbar.js" defer></script>
   </body>
 </html>
-

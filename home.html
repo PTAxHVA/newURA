@@ -9,6 +9,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="Navbar/navbar.css" />
 
     <!-- FONT - STACK SANS TEXT -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,25 +19,8 @@
       rel="stylesheet"
     />
   </head>
-  <body>
-    <!-- NAV -->
-    <header class="nav">
-      <div class="content">
-        <div class="nav__inner">
-          <div class="nav__brand">
-            <img src="assets/URA_logo_1024.png" alt="URA logo" />
-            <span>URA Research Group</span>
-          </div>
-          <nav class="nav__links" aria-label="Primary">
-            <a href="home.html">Home</a>
-            <a href="home.html#about">About</a>
-            <a href="home.html#blogs">Blogs</a>
-            <a href="home.html#people">People</a>
-            <a href="home.html#contact">Contact</a>
-          </nav>
-        </div>
-      </div>
-    </header>
+  <body data-nav-current="home">
+    <div id="navbar-root"></div>
 
     <!-- HERO -->
     <section class="hero">
@@ -351,46 +335,8 @@
       <div>© URA @ HCMUT. All rights reserved.</div>
     </footer>
 
-    <script>
-      // Scroll spy for nav
-      const sections = document.querySelectorAll("section[id]");
-      const navLinks = document.querySelectorAll(".nav__links a");
-
-      function onScroll() {
-        let currentId = "";
-
-        sections.forEach((section) => {
-          const rect = section.getBoundingClientRect();
-          // Adjust offset (80px) depending on your sticky header height
-          if (rect.top <= 80 && rect.bottom > 80) {
-            currentId = section.id;
-          }
-        });
-
-        navLinks.forEach((link) => {
-          link.classList.remove("active");
-
-          const href = link.getAttribute("href");
-
-          // Home section (top of page)
-          if (!currentId && href === "home.html") {
-            link.classList.add("active");
-          }
-
-          // In-page sections: #about, #blogs, #contact
-          if (currentId && href.endsWith("#" + currentId)) {
-            link.classList.add("active");
-          }
-        });
-      }
-
-      window.addEventListener("scroll", onScroll);
-      window.addEventListener("load", onScroll);
-    </script>
-
+    <script src="Navbar/navbar.js" defer></script>
     <script src="animations.js"></script>
-    <!-- Added carousel script -->
     <script src="carousel.js"></script>
   </body>
 </html>
-

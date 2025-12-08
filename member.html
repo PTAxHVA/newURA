@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-        <span>&gt;</span>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,24 +8,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="member.css" />
+    <link rel="stylesheet" href="Navbar/navbar.css" />
   </head>
-  <body>
-    <!-- Top navigation (DÙNG CHUNG, KHÔNG CẦN SỬA) -->
-    <header class="nav">
-      <div class="nav__inner">
-        <div class="nav__brand">
-          <img src="assets/URA_logo_1024.png" alt="URA logo" />
-          <span>URA Research Group</span>
-        </div>
-        <nav class="nav__links" aria-label="Primary">
-          <a href="home.html">Home</a>
-          <a href="home.html#about">About</a>
-          <a href="home.html#blogs">Blogs</a>
-          <a href="home.html#people">People</a>
-          <a href="home.html#contact">Contact</a>
-        </nav>
-      </div>
-    </header>
+  <body data-nav-current="people">
+    <div id="navbar-root"></div>
 
     <!-- =========================
          MAIN LAYOUT
@@ -240,8 +225,6 @@
       window.addEventListener("scroll", onScroll);
       window.addEventListener("load", onScroll);
     </script>
+    <script src="Navbar/navbar.js" defer></script>
   </body>
 </html>
-
-
-

@@ -13,25 +13,10 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="Navbar/navbar.css" />
   </head>
-  <body>
-    <header class="nav">
-      <div class="content">
-        <div class="nav__inner">
-          <div class="nav__brand">
-            <img src="assets/URA_logo_1024.png" alt="URA logo" />
-            <span>URA Research Group</span>
-          </div>
-          <nav class="nav__links" aria-label="Primary">
-            <a href="home.html">Home</a>
-            <a href="home.html#about">About</a>
-            <a href="home.html#blogs">Blogs</a>
-            <a href="people.html" aria-current="page">People</a>
-            <a href="home.html#contact">Contact</a>
-          </nav>
-        </div>
-      </div>
-    </header>
+  <body data-nav-current="people">
+    <div id="navbar-root"></div>
 
     <section class="hero">
       <div class="content">
@@ -435,6 +420,7 @@
       </div>
     </div>
 
+    <script src="Navbar/navbar.js" defer></script>
     <script src="animations.js"></script>
     <!-- Add modal script -->
     <script src="bio-modal.js"></script>
