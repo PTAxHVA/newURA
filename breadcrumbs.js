@@ -8,16 +8,16 @@ document.addEventListener("DOMContentLoaded", function () {
     .split("/")
     .filter((item) => item !== "");
 
-  // Logic loại bỏ file trùng tên folder (ví dụ: PEOPLE/people.html)
+  // Logic loại bỏ file trùng tên folder
   if (pathArray.length >= 2) {
     const lastItem = pathArray[pathArray.length - 1].toLowerCase();
     const folderName = pathArray[pathArray.length - 2].toLowerCase();
-
     if (lastItem.replace(".html", "") === folderName) {
       pathArray.pop();
     }
   }
 
+  // Loại bỏ index.html nếu có
   if (
     pathArray.length > 0 &&
     pathArray[pathArray.length - 1] === "index.html"
@@ -31,19 +31,28 @@ document.addEventListener("DOMContentLoaded", function () {
   pathArray.forEach((part, index) => {
     currentPath += `/${part}`;
 
-    // [SỬA LẠI ĐOẠN NÀY]
-    // 1. Chuyển tên folder/file gốc thành chữ thường hết (PEOPLE -> people)
+    // Xử lý tên cơ bản từ URL
     let lowerName = part.replace(".html", "").replace(/-/g, " ").toLowerCase();
-
-    // 2. Viết hoa chữ cái đầu (people -> People)
     let displayName = lowerName.charAt(0).toUpperCase() + lowerName.slice(1);
 
     breadcrumbsHTML += arrowIcon;
 
+    // --- ĐOẠN CODE MỚI THÊM VÀO ĐÂY ---
+    // Nếu là phần tử cuối cùng (trang hiện tại)
     if (index === pathArray.length - 1) {
+      // 1. Thử tìm thẻ có id="page-title" trong HTML
+      const pageTitleEl = document.getElementById("page-title");
+
+      // 2. Nếu tìm thấy, lấy nội dung của thẻ đó làm tên Breadcrumb
+      if (pageTitleEl) {
+        displayName = pageTitleEl.innerText;
+      }
+
       breadcrumbsHTML += `<span class="current">${displayName}</span>`;
-    } else {
-      // Logic fix link folder
+    }
+    // -----------------------------------
+    else {
+      // Logic fix link folder cho các trang danh mục
       let folderLink = currentPath;
       if (["blogs", "people"].includes(displayName.toLowerCase())) {
         folderLink = `${currentPath}/${displayName.toLowerCase()}.html`;

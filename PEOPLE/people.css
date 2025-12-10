@@ -659,11 +659,8 @@ a {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
 
-.card:hover {
-  transform: translateY(-8px);
+  padding: 10px;
 }
 
 /* Improved avatar styling with better shadow and scale animation */
@@ -682,8 +679,11 @@ a {
 
 .card:hover .avatar {
   box-shadow: var(--shadow-lg);
-  transform: scale(1.12);
   border-color: var(--accent);
+}
+
+.card:hover {
+  cursor: pointer;
 }
 
 .avatar > img {
@@ -746,10 +746,6 @@ a {
 .link a:hover::after {
   transform: scaleX(1);
   transform-origin: left;
-}
-
-.card-hover {
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* Responsive */

@@ -8,7 +8,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="member.css" />
-    <link rel="stylesheet" href="Navbar/navbar.css" />
+    <link rel="stylesheet" href="/Navbar/navbar.css" />
   </head>
   <body data-nav-current="people">
     <div id="navbar-root"></div>
@@ -22,11 +22,11 @@
       <aside class="member-sidebar fade-in">
         <div class="member-avatar" aria-hidden="true">
           <!-- TODO: Đổi ảnh profile cho từng người -->
-          <img src="assets/PHD/Quang.jpg" alt="Profile photo of member" />
+          <img src="/assets/PHD/Quang.jpg" alt="Profile photo of member" />
         </div>
 
         <!-- TODO: Đổi tên và chức danh -->
-        <div class="member-name">Dung Cam Quang</div>
+        <div id="page-title" class="member-name">Dung Cam Quang</div>
         <div class="member-role">PhD Student</div>
 
         <!-- Side menu: About / Publications / Team
@@ -171,26 +171,37 @@
       </div>
     </main>
 
-    <!-- ========== Breadcrumbs + footer (dùng chung) ========== -->
-    <div class="foot">
-      <div class="crumbs" aria-label="Breadcrumb">
-        <a href="home.html">Home</a>
-        <span>&gt;</span>
-        <a href="home.html#people">People</a>
-      </div>
-      <div class="fine-links">
-        <a href="#publications">Papers</a>
-        <span>|</span>
-        <a href="home.html#contact">Contact</a>
-        <span>|</span>
-        <a href="home.html">Login</a>
-      </div>
-    </div>
+    <footer class="ura-footer">
+          <div class="footer-container content">
+            <div class="footer-left">
+              <!-- <nav class="breadcrumbs">
+                <span>Home</span> 
+                <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"/></svg>
+                <span>Home</span>
+              </nav> -->
+              <nav id="breadcrumbs-container" aria-label="breadcrumb" class="breadcrumbs"></nav>
+              <div class="divider"></div>
+              <p class="copyright">© URA @ HCMUT. All rights reserved.</p>
+            </div>
 
-    <footer class="legal">
-      <img class="logo" src="assets/URA_logo_1024.png" alt="URA emblem" />
-      <div>© URA @ HCMUT. All rights reserved.</div>
-    </footer>
+            <div class="footer-right">
+              <div class="info-group">
+                <div class="location-title">Location</div>
+                <div class="divider"></div>
+                <a href="https://maps.app.goo.gl/qeBeoQUoniyqVpFm6" class="address" target="_blank">
+                  Ly Thuong Kiet Campus: 268 Ly Thuong Kiet, Ward 14,<br />
+                  District 10, Ho Chi Minh City
+                </a>
+              </div>
+              <div class="footer-logo">
+                <img
+                  src="/assets/URA_logo_1024.png"
+                  alt="URA Logo"
+                />
+              </div>
+            </div>
+          </div>
+        </footer>
 
     <!-- ========== JS: auto highlight menu theo section (KHÔNG CẦN SỬA) ========== -->
     <script>
@@ -225,6 +236,7 @@
       window.addEventListener("scroll", onScroll);
       window.addEventListener("load", onScroll);
     </script>
-    <script src="Navbar/navbar.js" defer></script>
+    <script src="/Navbar/navbar.js" defer></script>
+    <script src="/breadcrumbs.js" defer></script>
   </body>
 </html>
