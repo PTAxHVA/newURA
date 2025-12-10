@@ -91,96 +91,8 @@ a {
   }
 }
 
-/* NAV */
-.nav {
-  background: #fff;
-  border-bottom: 1px solid var(--line);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.3s ease;
-}
+/* -------------------- HERO -------------------- */
 
-.nav__inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 10px 16px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.nav__brand {
-  display: flex;
-  align-items: center;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  transition: opacity 0.3s ease;
-  font-size: 2.8rem;
-  color: var(--primary);
-}
-
-.nav__brand:hover {
-  opacity: 0.8;
-}
-
-.nav__brand img {
-  width: 69px;
-}
-
-.nav__links {
-  margin-left: auto;
-  display: flex;
-  gap: 32px;
-}
-
-.nav__links a {
-  color: #334155;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.7rem;
-  position: relative;
-  transition: color 0.25s ease;
-  padding-bottom: 6px;
-  font-family: var(--font-display);
-}
-
-/* Link underline animation */
-.nav__links a::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.25s ease;
-}
-
-.nav__links a:hover {
-  color: var(--accent);
-}
-
-.nav__links a:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-/* Active nav item (current page) */
-.nav__links a[aria-current="page"],
-.nav__links a.active {
-  color: var(--accent);
-}
-
-.nav__links a[aria-current="page"]::after,
-.nav__links a.active::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-/* HERO MINI */
 .hero {
   background: linear-gradient(135deg, #f3f5f7 0%, #e9edf2 100%);
   text-align: center;
@@ -218,7 +130,6 @@ a {
   gap: 26px;
 }
 
-/* HERO BADGE – giống home */
 .badge {
   display: inline-flex;
   gap: 10px;
@@ -232,22 +143,43 @@ a {
   color: var(--ink);
   border-radius: 8px;
 
+  /* trạng thái bình thường: hơi nổi nhẹ */
   box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
   transform: translateY(0) scale(1);
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease;
+  transition: transform 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
+/* Hover: nhô lên + phóng to + nền xanh */
 .badge:hover {
   background: var(--accent);
   color: #fff;
   border-color: var(--accent);
+
+  /* transform: translateY(-12px) scale(1.04);
+  box-shadow: 0 26px 55px rgba(15, 23, 42, 0.28); */
   cursor: pointer;
 }
 
-/* SECTIONS */
+.title-sub {
+  font-size: 4rem;
+  letter-spacing: 4px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+/* Added hero subtitle */
+.hero-subtitle {
+  font-size: 1.6rem;
+  color: var(--muted);
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+/* -------------------- SECTION -------------------- */
+
 .sec {
   padding: 60px 24px;
 }
@@ -409,67 +341,113 @@ a {
   line-height: 1.6;
 }
 
-/* FOOTER */
-.foot {
-  max-width: var(--max);
-  margin: 32px auto 16px;
-  padding: 0 16px;
-  color: #6b7280;
+/* -------------------- FOOTER -------------------- */
+.ura-footer {
+  background-color: var(--bg);
+  padding: 40px 60px;
+  color: #777;
+  font-size: 1.4rem;
+  width: 100%;
+
+  position: relative;
+  z-index: 1;
+
+  border-top: 1px solid #fff;
 }
 
-.crumbs {
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- LEFT COLUMN --- */
+.footer-left {
+  flex: 1;
+  max-width: 45%;
+}
+
+.breadcrumbs {
+  margin-bottom: 8px;
+
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 1.4rem;
 }
 
-.crumbs a {
-  color: #56637a;
+#breadcrumbs-container a {
   text-decoration: none;
-  transition: color 0.25s ease;
+  color: #777;
+  font-weight: 500;
+  transition: color 0.2s;
 }
 
-.crumbs a:hover {
-  color: var(--accent);
+#breadcrumbs-container a:hover {
+  color: #686868;
+}
+
+#breadcrumbs-container span.current {
+  color: #7777;
+  font-weight: 600;
+}
+
+.ura-footer .crumb-separator {
+  width: 10px;
+  height: 10px;
+  margin: 0 10px;
+  opacity: 0.8;
+  vertical-align: middle;
+}
+
+.ura-footer .arrow-icon path {
+  fill: #777;
+}
+
+/* --- RIGHT COLUMN --- */
+.footer-right {
+  flex: 1;
+  max-width: 55%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.info-group {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.location-title {
+  margin-bottom: 8px;
+}
+
+.ura-footer .address {
+  line-height: 1.5;
+  color: #777;
+  text-decoration: none;
+}
+
+.ura-footer .address:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
-.fine-links {
-  display: flex;
-  gap: 14px;
-  margin-top: 8px;
-  font-size: 1.4rem;
-  flex-wrap: wrap;
+/* --- ĐƯỜNG KẺ NGANG --- */
+.divider {
+  height: 1px;
+  background-color: #ccc; /* Màu đường kẻ */
+  width: 100%;
+  margin-bottom: 12px; /* Khoảng cách từ đường kẻ xuống nội dung dưới */
 }
 
-.fine-links a {
-  color: #56637a;
-  transition: color 0.25s ease;
-}
-
-.fine-links a:hover {
-  color: var(--accent);
-}
-
-.legal {
-  border-top: 1px solid var(--line);
-  padding: 16px 16px 24px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #6b7280;
-  background: #f9fafb;
-  font-size: 1.3rem;
-  max-width: var(--max);
-  margin: 0 auto 24px;
-}
-
-.legal .logo {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+/* --- LOGO --- */
+.footer-logo img {
+  width: 100px; /* Kích thước logo */
+  height: auto;
   object-fit: contain;
+  /* Nếu bạn muốn tạo viền lục giác giống ảnh mẫu, cần dùng ảnh PNG trong suốt */
 }
 
 /* RESPONSIVE */
@@ -643,7 +621,6 @@ a {
   text-align: justify;
 }
 
-
 /* Modern button styling with cyan accent and smooth transitions */
 .btn {
   display: inline-block;
@@ -802,7 +779,6 @@ a {
     gap: 32px 50px;
   }
 }
-
 
 @media (max-width: 600px) {
   .jhero__title {

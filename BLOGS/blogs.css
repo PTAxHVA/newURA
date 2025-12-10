@@ -120,9 +120,7 @@ a {
   border-radius: 8px;
   box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
   transform: translateY(0) scale(1);
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease,
+  transition: background-color 0.2s ease, color 0.2s ease,
     border-color 0.2s ease;
 }
 
@@ -401,11 +399,8 @@ a {
   background: #f3f4f6;
   color: #111827;
   cursor: pointer;
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease,
-    transform 0.1s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease, transform 0.1s ease;
 }
 
 .page-btn:hover {
@@ -428,67 +423,113 @@ a {
   padding-inline: 18px;
 }
 
-/* FOOTER (unchanged) */
-.foot {
-  max-width: var(--max);
-  margin: 32px auto 16px;
-  padding: 0 16px;
-  color: #6b7280;
+/* ------------------- FOOT ------------------- */
+.ura-footer {
+  background-color: var(--bg);
+  padding: 40px 60px;
+  color: #777;
+  font-size: 1.4rem;
+  width: 100%;
+
+  position: relative;
+  z-index: 1;
+
+  border-top: 1px solid #fff;
 }
 
-.crumbs {
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- LEFT COLUMN --- */
+.footer-left {
+  flex: 1;
+  max-width: 45%;
+}
+
+.breadcrumbs {
+  margin-bottom: 8px;
+
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 1.4rem;
 }
 
-.crumbs a {
-  color: #56637a;
+#breadcrumbs-container a {
   text-decoration: none;
-  transition: color 0.25s ease;
+  color: #777;
+  font-weight: 500;
+  transition: color 0.2s;
 }
 
-.crumbs a:hover {
-  color: var(--accent);
+#breadcrumbs-container a:hover {
+  color: #686868;
+}
+
+#breadcrumbs-container span.current {
+  color: #7777;
+  font-weight: 600;
+}
+
+.ura-footer .crumb-separator {
+  width: 10px;
+  height: 10px;
+  margin: 0 10px;
+  opacity: 0.8;
+  vertical-align: middle;
+}
+
+.ura-footer .arrow-icon path {
+  fill: #777;
+}
+
+/* --- RIGHT COLUMN --- */
+.footer-right {
+  flex: 1;
+  max-width: 55%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.info-group {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.location-title {
+  margin-bottom: 8px;
+}
+
+.ura-footer .address {
+  line-height: 1.5;
+  color: #777;
+  text-decoration: none;
+}
+
+.ura-footer .address:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
-.fine-links {
-  display: flex;
-  gap: 14px;
-  margin-top: 8px;
-  font-size: 1.4rem;
-  flex-wrap: wrap;
+/* --- ĐƯỜNG KẺ NGANG --- */
+.divider {
+  height: 1px;
+  background-color: #ccc; /* Màu đường kẻ */
+  width: 100%;
+  margin-bottom: 12px; /* Khoảng cách từ đường kẻ xuống nội dung dưới */
 }
 
-.fine-links a {
-  color: #56637a;
-  transition: color 0.25s ease;
-}
-
-.fine-links a:hover {
-  color: var(--accent);
-}
-
-.legal {
-  border-top: 1px solid var(--line);
-  padding: 16px 16px 24px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #6b7280;
-  background: #f9fafb;
-  font-size: 1.3rem;
-  max-width: var(--max);
-  margin: 0 auto 24px;
-}
-
-.legal .logo {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+/* --- LOGO --- */
+.footer-logo img {
+  width: 100px; /* Kích thước logo */
+  height: auto;
   object-fit: contain;
+  /* Nếu bạn muốn tạo viền lục giác giống ảnh mẫu, cần dùng ảnh PNG trong suốt */
 }
 
 @media (prefers-reduced-motion: no-preference) {
