@@ -3,15 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      URA Research Group | From Tears at Summer School to an A* Paper
-    </title>
+    <title>URA Research Group | Blog</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="blog_1.css" />
-    <link rel="stylesheet" href="Navbar/navbar.css" />
+    <link rel="stylesheet" href="/Navbar/navbar.css" />
   </head>
   <body data-nav-current="blogs">
     <div id="navbar-root"></div>
@@ -20,7 +18,7 @@
       <!-- HERO WITH BACKGROUND IMAGE -->
       <section
         class="post-hero"
-        style="background-image: url('assets/Ura_3.png')"
+        style="background-image: url('/assets/Ura_3.png')"
       >
         <div class="content">
           <div class="hero__inner">
@@ -63,7 +61,7 @@
                       <!-- 🔽 IMAGE + CAPTION  -->
               <figure class="post-figure">
                 <img
-                  src="assets/URA_image.png"
+                  src="/assets/URA_image.png"
                   alt="Acceptance notification for our EAAI-2026 paper"
                 />
                 <figcaption>
@@ -118,25 +116,43 @@
     </main>
 
     <!-- BREADCRUMB + FOOTER -->
-    <div class="foot">
-      <div class="crumbs" aria-label="Breadcrumb">
-        <a href="home.html">Home</a>
-        <span>&gt;</span>
-        <a href="blog.html">Blog</a>
-      </div>
-      <div class="fine-links">
-        <a href="blog.html">Paper</a>
-        <span>|</span>
-        <a href="home.html#contact">Contact</a>
-        <span>|</span>
-        <a href="home.html">Login</a>
-      </div>
-    </div>
+    <footer class="ura-footer">
+      <div class="footer-container content">
+        <div class="footer-left">
+          <!-- <nav class="breadcrumbs">
+                <span>Home</span> 
+                <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"/></svg>
+                <span>Home</span>
+              </nav> -->
+          <nav
+            id="breadcrumbs-container"
+            aria-label="breadcrumb"
+            class="breadcrumbs"
+          ></nav>
+          <div class="divider"></div>
+          <p class="copyright">© URA @ HCMUT. All rights reserved.</p>
+        </div>
 
-    <footer class="legal">
-      <img class="logo" src="assets/URA_logo_1024.png" alt="URA emblem" />
-      <div>© URA @ HCMUT. All rights reserved.</div>
+        <div class="footer-right">
+          <div class="info-group">
+            <div class="location-title">Location</div>
+            <div class="divider"></div>
+            <a
+              href="https://maps.app.goo.gl/qeBeoQUoniyqVpFm6"
+              class="address"
+              target="_blank"
+            >
+              Ly Thuong Kiet Campus: 268 Ly Thuong Kiet, Ward 14,<br />
+              District 10, Ho Chi Minh City
+            </a>
+          </div>
+          <div class="footer-logo">
+            <img src="/assets/URA_logo_1024.png" alt="URA Logo" />
+          </div>
+        </div>
+      </div>
     </footer>
-    <script src="Navbar/navbar.js" defer></script>
+    <script src="/Navbar/navbar.js" defer></script>
+    <script src="/breadcrumbs.js" defer></script>
   </body>
 </html>
