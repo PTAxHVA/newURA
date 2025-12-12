@@ -1,4 +1,3 @@
-
 @media (max-width: 900px) {
   .blogs-container,
   .blogs-carousel,
@@ -350,9 +349,6 @@ a.news-card .news-content {
   gap: 10px;
 }
 
-
-
-
 a.news-card .news-meta {
   display: flex;
   flex-wrap: wrap;
@@ -463,8 +459,9 @@ a.news-card h3 {
   padding-inline: 18px;
 }
 
-/* ------------------- FOOT ------------------- */
 /* ------------------- FOOTER ------------------- */
+/* ------------------- FOOTER ------------------- */
+
 .ura-footer {
   background-color: var(--bg);
   padding: 40px 0;
@@ -523,30 +520,26 @@ a.news-card h3 {
   vertical-align: middle;
 }
 
-.ura-footer .arrow-icon path {
-  fill: #777;
-}
-
 /* --- RIGHT COLUMN --- */
 .footer-right {
   flex: 1.2;
   display: flex;
-  justify-content: flex-end; /* Pushes content to the right */
+  justify-content: flex-end;
   align-items: flex-start;
   gap: 16px;
 }
 
 .info-group {
-  text-align: right; /* CRITICAL: Aligns text to the right like the image */
+  text-align: right; /* Aligns text to the right (Like Blog) */
 }
 
 .location-title {
-  margin-bottom: 8px;
+  color: #777;
   font-weight: 600;
-  color: var(--ink);
   display: inline-block;
-  border-bottom: 1px solid #e5e7eb; /* Adds the subtle underline line */
-  padding-bottom: 4px;
+
+  padding-bottom: 8px;
+  border-bottom: 2px solid;
 }
 
 .ura-footer .address {
@@ -554,6 +547,7 @@ a.news-card h3 {
   color: #777;
   text-decoration: none;
   display: block;
+  margin-top: 8px;
 }
 
 .ura-footer .address:hover {
@@ -571,7 +565,9 @@ a.news-card h3 {
 
 /* --- DIVIDER --- */
 .divider {
-  display: none;
+  height: 1px;
+  border: 1px solid;
+  margin: 8px 0;
 }
 
 /* =========================================
@@ -611,7 +607,7 @@ a.news-card h3 {
     grid-template-columns: 1fr;
     padding: 0;
     gap: 0;
-    overflow: hidden; 
+    overflow: hidden;
   }
   .news-thumb {
     border-radius: 0;
@@ -654,7 +650,8 @@ a.news-card h3 {
     flex-direction: column;
     align-items: flex-start;
   }
-  .btn, .btn--primary {
+  .btn,
+  .btn--primary {
     width: 100%;
     margin-top: 10px;
   }
@@ -673,7 +670,7 @@ a.news-card h3 {
     height: 40px;
     font-size: 20px;
   }
-  
+
   /* Blog Card Text Size */
   a.news-card h3 {
     font-size: 2rem;
@@ -690,16 +687,16 @@ a.news-card h3 {
   /* --- FOOTER MOBILE FIX --- */
   /* Keeps layout side-by-side (Row) like the image */
   .footer-container {
-    flex-direction: row; 
+    flex-direction: row;
     align-items: flex-start;
-    gap: 12px; 
+    gap: 12px;
     padding: 0 16px;
   }
 
   .ura-footer {
     font-size: 1.2rem;
   }
-  
+
   .footer-logo img {
     width: 60px; /* Smaller logo for mobile */
   }
