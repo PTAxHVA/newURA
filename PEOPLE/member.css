@@ -51,7 +51,14 @@ body {
   font-size: 1.8rem;
 }
 
-h1, h2, h3, h4, h5, h6, .nav__brand, .badge {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.nav__brand,
+.badge {
   font-family: var(--font-display);
 }
 
@@ -286,8 +293,7 @@ a {
   margin-top: 4px;
 }
 
-/* =========================
-   FOOTER  */
+/* ------------------- FOOTER ------------------- */
 
 .ura-footer {
   background-color: var(--bg);
@@ -347,30 +353,26 @@ a {
   vertical-align: middle;
 }
 
-.ura-footer .arrow-icon path {
-  fill: #777;
-}
-
 /* --- RIGHT COLUMN --- */
 .footer-right {
   flex: 1.2;
   display: flex;
-  justify-content: flex-end; /* Pushes content to the right */
+  justify-content: flex-end;
   align-items: flex-start;
   gap: 16px;
 }
 
 .info-group {
-  text-align: right; /* CRITICAL: Aligns text to the right */
+  text-align: right; /* Aligns text to the right (Like Blog) */
 }
 
 .location-title {
-  margin-bottom: 8px;
+  color: #777;
   font-weight: 600;
-  color: var(--ink);
   display: inline-block;
-  border-bottom: 1px solid #e5e7eb;
-  padding-bottom: 4px;
+
+  padding-bottom: 8px;
+  border-bottom: 2px solid;
 }
 
 .ura-footer .address {
@@ -378,6 +380,7 @@ a {
   color: #777;
   text-decoration: none;
   display: block;
+  margin-top: 8px;
 }
 
 .ura-footer .address:hover {
@@ -395,7 +398,9 @@ a {
 
 /* --- DIVIDER --- */
 .divider {
-  display: none;
+  height: 1px;
+  border: 1px solid;
+  margin: 8px 0;
 }
 
 /* =========================
@@ -418,7 +423,7 @@ a {
   .member-content {
     padding: 20px 18px 24px;
   }
-  
+
   /* Footer Padding Adjust */
   .ura-footer {
     padding: 30px 0;
@@ -447,16 +452,16 @@ a {
 
   /* --- FOOTER MOBILE FIX (Side-by-Side) --- */
   .footer-container {
-    flex-direction: row; 
+    flex-direction: row;
     align-items: flex-start;
-    gap: 12px; 
+    gap: 12px;
     padding: 0 16px;
   }
 
   .ura-footer {
     font-size: 1.2rem;
   }
-  
+
   .footer-logo img {
     width: 60px; /* Smaller logo for mobile */
   }
